@@ -147,7 +147,11 @@ export default function Home() {
         return `${hours}h ${minutes}m`
     }
 
-    console.log("Current Time:", currentTime);
+    useEffect(() => {
+        console.log("Current Time:", currentTime);
+        // Only log once on mount
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     const organDistribution = matches.reduce(
         (acc, match) => {
             acc[match.organ] = (acc[match.organ] || 0) + 1
@@ -163,7 +167,7 @@ export default function Home() {
                 <HeroHeader />
                 <main className="overflow-hidden">
                     <section className="relative">
-                        <div className="relative py-24 lg:py-28">
+                        <div className="relative pt-24 lg:py-28">
                             <div className="mx-auto max-w-7xl px-6 md:px-12">
                                 <div className="text-center sm:mx-auto sm:w-10/12 lg:mr-auto lg:mt-0 lg:w-4/5">
                                     <a
@@ -186,7 +190,7 @@ export default function Home() {
                     </section>
                 </main>
 
-                <div className="container mx-auto px-4 py-8 pt-25 sm:pt-7 max-w-7xl">
+                <div className="container mx-auto px-4 py-5 max-w-7xl">
                     {/* Enhanced Ethical Disclaimer */}
                     <Alert className="mb-8 rounded-3xl border-emerald-600/20 bg-emerald-600/5">
                         <CircleCheck className="h-4 w-4 text-emerald-600" />
