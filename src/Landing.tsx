@@ -88,7 +88,7 @@ export default function LandingPage() {
             title: "Regulatory Compliant",
             description: "Meets all medical industry standards and protocols",
         },
-    ] 
+    ]
 
     return (
         <div className="min-h-screen bg-background">
@@ -116,16 +116,6 @@ export default function LandingPage() {
                                         <a href="/app">
                                             <span className="text-nowrap">Start Matching</span>
                                             <ChevronRight className="ml-1" />
-                                        </a>
-                                    </Button>
-                                    <Button
-                                        key={2}
-                                        asChild
-                                        size="lg"
-                                        variant="ghost"
-                                        className="h-12 rounded-full px-5 text-base hover:bg-zinc-950/5 dark:hover:bg-white/5">
-                                        <a href="#contact">
-                                            <span className="text-nowrap">Request a demo</span>
                                         </a>
                                     </Button>
                                 </div>
@@ -247,7 +237,7 @@ export default function LandingPage() {
             {/* Benefits Section */}
             <section id="benefits" className="py-20 w-full max-w-7xl mx-auto px-4">
                 <div className="container mx-auto px-4">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    <div className="items-center mx-auto justify-center *:flex">
                         <div className="space-y-8">
                             <div>
                                 <Badge variant="outline" className="mb-4">
@@ -274,27 +264,6 @@ export default function LandingPage() {
                                 ))}
                             </div>
                         </div>
-
-                        <div className="relative">
-                            <Card className="p-8 bg-primary-foreground text-primary">
-                                <CardContent className="p-0 space-y-6">
-                                    <h3 className="text-2xl font-bold">Success Story</h3>
-                                    <blockquote className="text-lg italic">
-                                        "Since implementing BioMatch, our transplant success rate has increased by 23%, and we've reduced
-                                        organ rejection cases by 40%. The AI insights have been invaluable."
-                                    </blockquote>
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-12 h-12 bg-primary-foreground/20 rounded-full flex items-center justify-center">
-                                            <Users className="h-6 w-6" />
-                                        </div>
-                                        <div>
-                                            <div className="font-semibold">Dr. Jennifer Park</div>
-                                            <div className="text-primary/80">Chief Medical Officer</div>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -308,17 +277,21 @@ export default function LandingPage() {
                             Join leading medical institutions using BioMatch to save more lives through precision DNA matching.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                                Start Free Trial
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
-                            >
-                                Schedule Demo
-                            </Button>
+                            <a href="/app">
+                                <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+                                    Try it now
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                            </a>
+                            <a href="https://github.com/mikaelendale/biomatch" target="_blank">
+                                <Button
+                                    size="lg"
+                                    variant="outline"
+                                    className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
+                                >
+                                    Contribute
+                                </Button>
+                            </a>
                         </div>
                     </div>
                 </div>
