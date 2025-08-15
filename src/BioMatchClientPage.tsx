@@ -139,8 +139,8 @@ export default function BioMatchApp() {
     }
 
     const highCompatibilityCount = matches.filter((m) => m.compatibility >= 80).length
-    const mediumCompatibilityCount = matches.filter((m) => m.compatibility >= 60 && m.compatibility < 80).length
-    const lowCompatibilityCount = matches.filter((m) => m.compatibility < 60).length
+    // const mediumCompatibilityCount = matches.filter((m) => m.compatibility >= 60 && m.compatibility < 80).length
+    // const lowCompatibilityCount = matches.filter((m) => m.compatibility < 60).length
 
     const formatUptime = (seconds: number) => {
         const hours = Math.floor(seconds / 3600)
@@ -148,13 +148,13 @@ export default function BioMatchApp() {
         return `${hours}h ${minutes}m`
     }
 
-    const organDistribution = matches.reduce(
-        (acc, match) => {
-            acc[match.organ] = (acc[match.organ] || 0) + 1
-            return acc
-        },
-        {} as Record<string, number>,
-    )
+    // const organDistribution = matches.reduce(
+    //     (acc, match) => {
+    //         acc[match.organ] = (acc[match.organ] || 0) + 1
+    //         return acc
+    //     },
+    //     {} as Record<string, number>,
+    // )
 
     return (
         <div className="min-h-screen bg-background">

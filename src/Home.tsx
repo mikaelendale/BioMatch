@@ -147,7 +147,7 @@ export default function Home() {
         return `${hours}h ${minutes}m`
     }
 
-    // console.log("Current Time:", currentTime);
+    console.log("Current Time:", currentTime);
     const organDistribution = matches.reduce(
         (acc, match) => {
             acc[match.organ] = (acc[match.organ] || 0) + 1

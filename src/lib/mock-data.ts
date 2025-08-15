@@ -25,65 +25,65 @@ export interface Donor {
 }
 
 // Common HLA alleles for realistic data generation
-const commonHLAAlleles = {
-  hlaA: [
-    "A*01:01",
-    "A*02:01",
-    "A*03:01",
-    "A*11:01",
-    "A*23:01",
-    "A*24:02",
-    "A*26:01",
-    "A*29:02",
-    "A*30:01",
-    "A*31:01",
-    "A*32:01",
-    "A*33:01",
-    "A*68:01",
-    "A*68:02",
-    "A*69:01",
-    "A*74:01",
-  ],
-  hlaB: [
-    "B*07:02",
-    "B*08:01",
-    "B*13:02",
-    "B*14:02",
-    "B*15:01",
-    "B*18:01",
-    "B*27:05",
-    "B*35:01",
-    "B*38:01",
-    "B*39:01",
-    "B*40:01",
-    "B*44:02",
-    "B*44:03",
-    "B*49:01",
-    "B*50:01",
-    "B*51:01",
-    "B*52:01",
-    "B*53:01",
-    "B*55:01",
-    "B*56:01",
-    "B*57:01",
-    "B*58:01",
-  ],
-  hlaDR: [
-    "DRB1*01:01",
-    "DRB1*03:01",
-    "DRB1*04:01",
-    "DRB1*07:01",
-    "DRB1*08:01",
-    "DRB1*09:01",
-    "DRB1*10:01",
-    "DRB1*11:01",
-    "DRB1*12:01",
-    "DRB1*13:01",
-    "DRB1*14:01",
-    "DRB1*15:01",
-    "DRB1*16:01",
-  ],
-};
+// const commonHLAAlleles = {
+//   hlaA: [
+//     "A*01:01",
+//     "A*02:01",
+//     "A*03:01",
+//     "A*11:01",
+//     "A*23:01",
+//     "A*24:02",
+//     "A*26:01",
+//     "A*29:02",
+//     "A*30:01",
+//     "A*31:01",
+//     "A*32:01",
+//     "A*33:01",
+//     "A*68:01",
+//     "A*68:02",
+//     "A*69:01",
+//     "A*74:01",
+//   ],
+//   hlaB: [
+//     "B*07:02",
+//     "B*08:01",
+//     "B*13:02",
+//     "B*14:02",
+//     "B*15:01",
+//     "B*18:01",
+//     "B*27:05",
+//     "B*35:01",
+//     "B*38:01",
+//     "B*39:01",
+//     "B*40:01",
+//     "B*44:02",
+//     "B*44:03",
+//     "B*49:01",
+//     "B*50:01",
+//     "B*51:01",
+//     "B*52:01",
+//     "B*53:01",
+//     "B*55:01",
+//     "B*56:01",
+//     "B*57:01",
+//     "B*58:01",
+//   ],
+//   hlaDR: [
+//     "DRB1*01:01",
+//     "DRB1*03:01",
+//     "DRB1*04:01",
+//     "DRB1*07:01",
+//     "DRB1*08:01",
+//     "DRB1*09:01",
+//     "DRB1*10:01",
+//     "DRB1*11:01",
+//     "DRB1*12:01",
+//     "DRB1*13:01",
+//     "DRB1*14:01",
+//     "DRB1*15:01",
+//     "DRB1*16:01",
+//   ],
+// };
 
 const bloodTypes = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 const organs = ["Kidney", "Liver", "Heart", "Lung", "Pancreas"];
@@ -114,10 +114,10 @@ const locations = [
   "Detroit, MI",
   "Oklahoma City, OK",
 ];
-const medicalStatuses = ["Excellent", "Good", "Fair", "Stable"];
-const availabilities = ["Available", "Pending", "Reserved"];
-const organConditions = ["excellent", "good", "fair"] as const;
-const donorTypes = ["living", "deceased"] as const;
+// const medicalStatuses = ["Excellent", "Good", "Fair", "Stable"];
+// const availabilities = ["Available", "Pending", "Reserved"];
+// const organConditions = ["excellent", "good", "fair"] as const;
+// const donorTypes = ["living", "deceased"] as const;
 
 function getRandomElement<T>(array: T[]): T {
   return array[Math.floor(Math.random() * array.length)];

@@ -207,20 +207,12 @@ export function generateRealisticHLASync(): {
 }
 
 // Population-specific HLA generation (simplified for demo)
-export function generatePopulationSpecificHLA(
-  population: "caucasian" | "african" | "asian" | "hispanic"
-): {
+export function generatePopulationSpecificHLA(): {
   hlaA: string;
   hlaB: string;
   hlaDR: string;
 } {
   // This is a simplified version - in reality, you'd have separate frequency tables for each population
-  const populationModifiers = {
-    caucasian: { aModifier: 1.0, bModifier: 1.0, drModifier: 1.0 },
-    african: { aModifier: 0.8, bModifier: 1.2, drModifier: 0.9 },
-    asian: { aModifier: 1.1, bModifier: 0.9, drModifier: 1.1 },
-    hispanic: { aModifier: 0.9, bModifier: 1.0, drModifier: 1.0 },
-  };
 
   // For demo purposes, just use the general function
   // In production, you'd have population-specific frequency tables
@@ -250,7 +242,7 @@ export async function generatePopulationSpecificHLAFromTSV(
       "[v0] Failed to load TSV data for population-specific generation:",
       error
     );
-    return generatePopulationSpecificHLA(population);
+    return generatePopulationSpecificHLA();
   }
 }
 

@@ -57,7 +57,7 @@ export function parseTSVContent(
 
     const allele = columns[alleleIndex]?.trim();
     const frequencyStr = columns[frequencyIndex]?.trim();
-    const population = columns[populationIndex]?.trim() || "Unknown";
+    // const population = columns[populationIndex]?.trim() || "Unknown";
 
     if (!allele || !frequencyStr) continue;
 
