@@ -198,7 +198,7 @@ export default function LandingPage() {
             </main>
 
             {/* Features Section */}
-            <section id="features" className=" pt-70 w-full max-w-7xl mx-auto px-4">
+            <section id="features" className="pt-20 sm:pt-70 w-full max-w-7xl mx-auto px-4">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <Badge variant="outline" className="mb-4">
