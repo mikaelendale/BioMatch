@@ -131,10 +131,9 @@ Maintain medical accuracy while providing actionable insights for transplant tea
       ],
       model: "llama-3.1-8b-instant",
       max_tokens: 2000, // Increased for more comprehensive analysis
-      temperature: 0.1, // Very low temperature for consistent medical analysis
+      temperature: 0.1, // Very low temperature for consistent medical analysisa
     });
 
-    console.log("AI Response:", chatCompletion.choices[0]?.message?.content);
     return (
       chatCompletion.choices[0]?.message?.content ||
       "Unable to generate insights at this time."

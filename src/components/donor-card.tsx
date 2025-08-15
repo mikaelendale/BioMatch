@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
-import { ChevronLeft, ChevronRight, MapPin, Calendar, Droplets, User, Activity, Clock, Shield, Timer } from "lucide-react"
+import { ChevronLeft, ChevronRight, MapPin, Calendar, Droplets, User, Activity, Clock, Shield, Timer, SearchCheck, ScanHeart, UserSearchIcon } from "lucide-react"
 import { OrganIcon } from "./organ-icon"
 import type { Donor } from "@/lib/mock-data"
 
@@ -44,7 +44,7 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
     const compatibilityBadge = getCompatibilityBadge(donor.compatibility)
 
     return (
-        <Card className="w-full max-w-4xl mx-auto shadow-sm border-2 hover:shadow-xl transition-all duration-300">
+        <Card className="w-full rounded-3xl max-w-4xl mx-auto shadow-none border-accent border-2 transition-all duration-300">
             <CardHeader className="text-center space-y-4 ">
                 {/* Navigation */}
                 <div className="flex items-center justify-between">
@@ -76,7 +76,7 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
                             <div className={`text-6xl font-bold ${getCompatibilityColor(donor.compatibility)} mb-2`}>
                                 {donor.compatibility}%
                             </div>
-                            <Progress value={donor.compatibility} className="h-3 w-32" />
+                            <Progress value={donor.compatibility} className="h-1 w-32" />
                         </div>
                         <div className="text-center space-y-2">
                             <div className="text-sm text-muted-foreground">Match Quality</div>
@@ -84,7 +84,7 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
                                 {compatibilityBadge.label}
                             </Badge>
                             {donor.urgencyScore && (
-                                <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                                <div className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
                                     <Timer className="h-3 w-3" />
                                     Urgency: {donor.urgencyScore}/100
                                 </div>
@@ -97,7 +97,7 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
             <CardContent className="space-y-6 p-6">
                 {/* Enhanced Information Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="flex items-center gap-3 p-4 bg-primary/5 rounded-xl border border-primary/20 hover:bg-primary/10 transition-colors">
+                    <div className="flex items-center gap-3 p-4 bg-primary/5 rounded-xl border border-accent  transition-colors">
                         <OrganIcon organ={donor.organ} className="text-primary flex-shrink-0" />
                         <div>
                             <div className="text-sm text-muted-foreground">Organ Type</div>
@@ -108,7 +108,7 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3 p-4 bg-red-50 rounded-xl border border-red-100 hover:bg-red-100 transition-colors">
+                    <div className="flex items-center gap-3 p-4 bg-red-50 dark:bg-red-800/30 rounded-xl border border-accent  transition-colors">
                         <Droplets className="h-5 w-5 text-red-500 flex-shrink-0" />
                         <div>
                             <div className="text-sm text-muted-foreground">Blood Type</div>
@@ -117,7 +117,7 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100 hover:bg-blue-100 transition-colors">
+                    <div className="flex items-center gap-3 p-4 bg-blue-50 dark:bg-blue-800/20 rounded-xl border border-accent  transition-colors">
                         <Calendar className="h-5 w-5 text-blue-500 flex-shrink-0" />
                         <div>
                             <div className="text-sm text-muted-foreground">Age</div>
@@ -126,7 +126,7 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3 p-4 bg-green-50 rounded-xl border border-green-100 hover:bg-green-100 transition-colors">
+                    <div className="flex items-center gap-3 p-4 bg-green-50 dark:bg-green-800/30 rounded-xl border border-accent  transition-colors">
                         <MapPin className="h-5 w-5 text-green-500 flex-shrink-0" />
                         <div>
                             <div className="text-sm text-muted-foreground">Location</div>
@@ -146,7 +146,7 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
                 {/* Enhanced HLA Profile Section */}
                 <div className="space-y-4">
                     <h3 className="text-lg font-semibold flex items-center gap-2">
-                        <Activity className="h-5 w-5 text-primary" />
+                        <SearchCheck className="h-5 w-5 text-primary" />
                         HLA Genetic Profile Analysis
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -191,11 +191,10 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="space-y-3">
                         <h4 className="font-semibold text-muted-foreground uppercase tracking-wide text-sm flex items-center gap-2">
-                            <Shield className="h-4 w-4" />
+                            <ScanHeart className="h-4 w-4" />
                             Medical Status
                         </h4>
                         <div className="flex items-center gap-2">
-                            <Activity className="h-4 w-4 text-green-500" />
                             <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
                                 {donor.medicalStatus}
                             </Badge>
@@ -204,7 +203,7 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
 
                     <div className="space-y-3">
                         <h4 className="font-semibold text-muted-foreground uppercase tracking-wide text-sm flex items-center gap-2">
-                            <Clock className="h-4 w-4" />
+                            <UserSearchIcon className="h-4 w-4" />
                             Availability
                         </h4>
                         <div className="flex items-center gap-2">
@@ -245,9 +244,8 @@ export function DonorCard({ donor, onNext, onPrevious, currentIndex, totalMatche
                 </div>
 
                 {/* Enhanced Additional Info */}
-                <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/5 rounded-xl border-l-4 border-l-primary">
+                <div className="p-4 bg-primary-foreground rounded-xl border-l-4 border-l-accent">
                     <div className="flex items-start gap-3">
-                        <Shield className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                         <div>
                             <p className="text-sm font-medium mb-1">Clinical Assessment</p>
                             <p className="text-sm text-muted-foreground">

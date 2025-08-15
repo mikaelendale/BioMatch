@@ -27,10 +27,23 @@ import {
     Activity,
     Download,
     Filter,
-    BarChart3,
     Package,
     GitCompare,
+    Menu,
+    X,
+    CircleCheck,
+    Circle,
+    LoaderCircle,
+    LoaderPinwheel,
+    ArrowRight,
+    SearchCheck,
+    SquareDashedMousePointerIcon,
+    TrendingUpDown,
+    FileDown,
+    BrainCircuit,
 } from "lucide-react"
+import { ModeToggle } from "./components/mode-toggle"
+import React from "react"
 
 export default function Home() {
     const [recipientHLA, setRecipientHLA] = useState({
@@ -157,45 +170,75 @@ export default function Home() {
         },
         {} as Record<string, number>,
     )
+    const [menuState, setMenuState] = React.useState(false)
 
     return (
         <div className="min-h-screen bg-background">
             {/* Enhanced Header */}
-            <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-                <div className="container mx-auto px-4 py-6">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                            <div className="relative">
-                                <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
-                                    <Dna className="h-6 w-6 text-primary" />
-                                </div>
-                                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                            </div>
-                            <div>
-                                <h1 className="text-2xl font-bold">BioMatch Pro</h1>
-                                <p className="text-sm text-muted-foreground">Advanced Multi-Organ AI Matching</p>
-                            </div>
-                        </div>
+            <header>
+                <nav
+                    data-state={menuState && 'active'}
+                    className="fixed z-20 w-full border-b border-dashed bg-white backdrop-blur md:relative dark:bg-zinc-950/50 lg:dark:bg-transparent">
+                    <div className="m-auto max-w-6xl px-6">
+                        <div className="flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+                            <div className="flex w-full justify-between lg:w-auto">
 
-                        <div className="flex items-center gap-4">
-                            <div className="hidden md:flex items-center gap-2 text-sm">
-                                <Activity className="h-4 w-4 text-green-500" />
-                                <span className="text-muted-foreground">AI Enhanced</span>
+                                <div>
+                                    <h1 className="text-2xl font-bold">BioMatch</h1>
+                                    <p className="text-sm text-muted-foreground">Advanced Multi-Organ AI Matching</p>
+                                </div>
+
+                                <button
+                                    className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden">
+                                    <ModeToggle />
+                                </button>
                             </div>
-                            <Badge variant="outline" className="hidden sm:flex">
-                                {currentTime.toLocaleTimeString()}
-                            </Badge>
+
+                            <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
+                                <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
+                                    <div className="flex items-center gap-4">
+                                        <Badge variant="outline" className="hidden sm:flex">
+                                            {currentTime.toLocaleTimeString()}
+                                        </Badge>
+                                        <ModeToggle />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </nav>
             </header>
+            <main className="overflow-hidden">
+                <section className="relative">
+                    <div className="relative py-24 lg:py-28">
+                        <div className="mx-auto max-w-7xl px-6 md:px-12">
+                            <div className="text-center sm:mx-auto sm:w-10/12 lg:mr-auto lg:mt-0 lg:w-4/5">
+                                <a
+                                    href="/"
+                                    className="rounded-(--radius) mx-auto flex w-fit items-center gap-2 border p-1 pr-3">
+                                    <span className="bg-muted rounded-[calc(var(--radius)-0.25rem)] px-2 py-1 text-xs">New</span>
+                                    <span className="text-sm">BioMatch Launch</span>
+                                    <span className="bg-(--color-border) block h-4 w-px"></span>
+                                    <ArrowRight className="size-4" />
+                                </a>
 
-            <div className="container mx-auto px-4 py-8 max-w-7xl">
+                                <h1 className="mt-8 text-4xl font-semibold md:text-5xl xl:text-5xl xl:[line-height:1.125]">
+                                    Revolutionizing Organ Transplants <br /> Through Genetic Matching
+                                </h1>
+                                <p className="mx-auto mt-8 hidden max-w-2xl text-wrap text-lg sm:block">BioMatch uses HLA genotyping to connect organ donors with recipients faster, reducing rejection rates and waitlist deaths.</p>
+                                <p className="mx-auto mt-6 max-w-2xl text-wrap sm:hidden">Advanced genetic matching for organ transplants.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div className="container mx-auto px-4 py-8 pt-25 sm:pt-7 max-w-7xl">
                 {/* Enhanced Ethical Disclaimer */}
-                <Alert className="mb-8 border-destructive/20 bg-destructive/5">
-                    <AlertTriangle className="h-4 w-4 text-destructive" />
+                <Alert className="mb-8 rounded-3xl border-emerald-600/20 bg-emerald-600/5">
+                    <CircleCheck className="h-4 w-4 text-emerald-600" />
                     <AlertDescription className="text-sm">
-                        <strong>Educational & Research Use Only:</strong> This advanced AI system demonstrates multi-organ
+                        <p className="font-bold">Educational & Research Use Only:</p> This advanced AI system demonstrates multi-organ
                         compatibility analysis with predictive analytics. All data is simulated. Never use for actual medical
                         decisions - always consult qualified transplant professionals.
                     </AlertDescription>
@@ -205,10 +248,9 @@ export default function Home() {
                     {/* Enhanced Sidebar */}
                     <div className="lg:col-span-4 space-y-6">
                         {/* Enhanced HLA Input with Organ Selection */}
-                        <Card className="top-24">
+                        <Card className="top-24 shadow-none border-accent rounded-3xl">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <Dna className="h-5 w-5 text-primary" />
                                     Advanced HLA Analysis
                                 </CardTitle>
                                 <CardDescription>Multi-organ compatibility with AI insights</CardDescription>
@@ -227,35 +269,33 @@ export default function Home() {
                         </Card>
 
                         {/* Enhanced System Status */}
-                        <Card>
+                        <Card className="border shadow-none rounded-3xl">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <Database className="h-5 w-5 text-primary" />
                                     Live System Analytics
-                                    <div className="ml-auto w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-4">
                                 <div className="grid grid-cols-2 gap-3">
-                                    <div className="text-center p-3 bg-primary/5 rounded-lg border border-primary/10">
+                                    <div className="text-center p-3 bg-primary/5 rounded-xl border border-primary/10">
                                         <div className="text-2xl font-bold text-primary">{donorCount}</div>
                                         <div className="text-xs text-muted-foreground">Active Donors</div>
                                     </div>
-                                    <div className="text-center p-3 bg-accent/5 rounded-lg border border-accent/10">
-                                        <div className="text-2xl font-bold text-accent">{formatUptime(systemUptime)}</div>
+                                    <div className="text-center p-3 bg-accent/5 rounded-xl border border-accent/10">
+                                        <div className="text-2xl font-bold text-muted-foreground">{formatUptime(systemUptime)}</div>
                                         <div className="text-xs text-muted-foreground">System Uptime</div>
                                     </div>
                                 </div>
 
                                 {selectedOrgan !== "all" && (
-                                    <div className="p-3 bg-blue-50 rounded-lg border border-blue-200">
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <Filter className="h-4 w-4 text-blue-600" />
-                                            <span className="text-sm font-medium text-blue-800">Active Filter</span>
+                                    <div className="p-3 bg-accent rounded-lg border border-primary-foreground">
+                                        <div className="flex items-center gap-2 mb-1 rounded-xl">
+                                            <Filter className="h-4 w-4 text-primary" />
+                                            <span className="text-sm font-medium text-primary">Active Filter</span>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <OrganIcon organ={selectedOrgan} size="sm" className="text-blue-600" />
-                                            <span className="text-sm text-blue-700 capitalize">{selectedOrgan} Only</span>
+                                            <span className="text-sm text-muted-foreground capitalize">{selectedOrgan} Only</span>
                                         </div>
                                     </div>
                                 )}
@@ -311,12 +351,12 @@ export default function Home() {
                                     <div className="space-y-3 pt-4 border-t">
                                         <div className="flex items-center justify-between text-sm">
                                             <span className="flex items-center gap-2">
-                                                <Search className="h-4 w-4 animate-spin text-primary" />
+                                                <LoaderPinwheel className="h-4 w-4 animate-spin text-primary" />
                                                 AI-Enhanced Analysis...
                                             </span>
                                             <span className="text-primary font-medium">{analysisProgress}%</span>
                                         </div>
-                                        <Progress value={analysisProgress} className="h-2" />
+                                        <Progress value={analysisProgress} className="h-8" />
                                         <div className="text-xs text-muted-foreground text-center">
                                             Processing {donorCount} donors with predictive analytics
                                         </div>
@@ -332,8 +372,8 @@ export default function Home() {
                             /* Enhanced Welcome State */
                             <Card className="h-full min-h-[600px] flex items-center justify-center">
                                 <CardContent className="text-center space-y-8 p-12">
-                                    <div className="w-24 h-24 mx-auto bg-primary/10 rounded-full flex items-center justify-center">
-                                        <Heart className="h-12 w-12 text-primary animate-pulse" />
+                                    <div className="w-24 h-24 mx-auto rounded-full flex items-center justify-center">
+                                        <img src="https://www.svgrepo.com/show/210271/care-donation.svg" alt="" />
                                     </div>
                                     <div className="space-y-4">
                                         <h2 className="text-3xl font-bold">Advanced Multi-Organ Matching</h2>
@@ -342,20 +382,20 @@ export default function Home() {
                                         </p>
                                     </div>
                                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-                                        <div className="flex flex-col items-center gap-2 p-4 bg-muted/50 rounded-lg">
-                                            <Clock className="h-6 w-6 text-primary" />
+                                        <div className="flex flex-col items-center gap-2 p-4  rounded-lg">
+                                            <SearchCheck className="h-6 w-6 text-primary" />
                                             <span className="text-sm font-medium">2s Analysis</span>
                                         </div>
-                                        <div className="flex flex-col items-center gap-2 p-4 bg-muted/50 rounded-lg">
-                                            <Shield className="h-6 w-6 text-primary" />
+                                        <div className="flex flex-col items-center gap-2 p-4  rounded-lg">
+                                            <SquareDashedMousePointerIcon className="h-6 w-6 text-primary" />
                                             <span className="text-sm font-medium">AI Insights</span>
                                         </div>
-                                        <div className="flex flex-col items-center gap-2 p-4 bg-muted/50 rounded-lg">
-                                            <TrendingUp className="h-6 w-6 text-primary" />
+                                        <div className="flex flex-col items-center gap-2 p-4  rounded-lg">
+                                            <TrendingUpDown className="h-6 w-6 text-primary" />
                                             <span className="text-sm font-medium">Predictive</span>
                                         </div>
-                                        <div className="flex flex-col items-center gap-2 p-4 bg-muted/50 rounded-lg">
-                                            <Download className="h-6 w-6 text-primary" />
+                                        <div className="flex flex-col items-center gap-2 p-4 rounded-lg">
+                                            <FileDown className="h-6 w-6 text-primary" />
                                             <span className="text-sm font-medium">PDF Export</span>
                                         </div>
                                     </div>
@@ -418,7 +458,7 @@ export default function Home() {
                                                 {matches.map((match, index) => (
                                                     <Card
                                                         key={match.id}
-                                                        className={`cursor-pointer transition-all hover:shadow-lg hover:scale-[1.02] ${index === currentMatchIndex ? "ring-2 ring-primary shadow-lg" : ""
+                                                        className={`cursor-pointer transition-all shadow-none hover:shadow-sm ${index === currentMatchIndex ? "ring-2 ring-primary shadow-lg" : ""
                                                             }`}
                                                         onClick={() => setCurrentMatchIndex(index)}
                                                     >
@@ -446,7 +486,7 @@ export default function Home() {
                                                                     {match.bloodType} • Age {match.age}
                                                                     {match.urgencyScore && ` • Urgency ${match.urgencyScore}`}
                                                                 </div>
-                                                                <Progress value={match.compatibility} className="h-2" />
+                                                                <Progress value={match.compatibility} className="h-4" />
                                                             </div>
                                                         </CardContent>
                                                     </Card>
@@ -497,8 +537,8 @@ export default function Home() {
                             </Card>
 
                             <Card className="text-center p-6 hover:shadow-lg transition-all hover:scale-[1.02]">
-                                <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-lg flex items-center justify-center">
-                                    <Users className="h-6 w-6 text-accent" />
+                                <div className="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-lg flex items-center justify-center">
+                                    <Users className="h-6 w-6 text-primary" />
                                 </div>
                                 <h3 className="font-semibold mb-2">Predictive Analytics</h3>
                                 <p className="text-sm text-muted-foreground">AI-powered success probability and risk assessment</p>
@@ -513,8 +553,8 @@ export default function Home() {
                             </Card>
 
                             <Card className="text-center p-6 hover:shadow-lg transition-all hover:scale-[1.02]">
-                                <div className="w-12 h-12 mx-auto mb-4 bg-accent/10 rounded-lg flex items-center justify-center">
-                                    <TrendingUp className="h-6 w-6 text-accent" />
+                                <div className="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-lg flex items-center justify-center">
+                                    <TrendingUp className="h-6 w-6 text-primary" />
                                 </div>
                                 <h3 className="font-semibold mb-2">Real-time Insights</h3>
                                 <p className="text-sm text-muted-foreground">Live donor updates and compatibility tracking</p>

@@ -54,7 +54,6 @@ export function HLAInputForm({
             {onOrganChange && (
                 <div className="space-y-2">
                     <Label className="flex items-center gap-2">
-                        <Dna className="h-4 w-4 text-primary" />
                         Target Organ Type
                     </Label>
                     <Select value={selectedOrgan} onValueChange={onOrganChange}>
@@ -121,7 +120,7 @@ export function HLAInputForm({
             </div>
 
             {/* Enhanced Format Guide */}
-            <Card className="bg-gradient-to-r from-muted/50 to-muted/30 border-primary/20">
+            <Card className="bg-primary-foreground border-accent shadow-none">
                 <CardContent className="p-4">
                     <div className="flex items-center gap-2 mb-3">
                         <Info className="h-4 w-4 text-primary" />
@@ -169,25 +168,11 @@ export function HLAInputForm({
                         </>
                     ) : (
                         <>
-                            <Search className="h-4 w-4" />
                             Find Compatible Donors
                         </>
                     )}
                 </Button>
             </div>
-
-            {/* Progress Indicator */}
-            {isAnalyzing && (
-                <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                        <span className="text-muted-foreground">Processing genetic markers...</span>
-                        <span className="text-primary font-medium">Analyzing</span>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-2">
-                        <div className="bg-primary h-2 rounded-full animate-pulse" style={{ width: "60%" }}></div>
-                    </div>
-                </div>
-            )}
         </div>
     )
 }
