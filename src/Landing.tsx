@@ -138,7 +138,7 @@ export default function LandingPage() {
                 </section>
 
                 {/* Added trusted institutions section with medical logos */}
-                {/* <section className="bg-background pb-2">
+                <section className="bg-background pb-2">
                     <div className="group relative m-auto max-w-7xl px-6 z-20">
                         <div className="flex flex-col items-center md:flex-row ">
                             <div className="md:max-w-44 md:border-r md:pr-6">
@@ -203,7 +203,7 @@ export default function LandingPage() {
                             </div>
                         </div>
                     </div>
-                </section> */}
+                </section>
             </main>
 
             {/* Features Section */}
