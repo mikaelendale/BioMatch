@@ -20,6 +20,7 @@ import {
 import Footer from "./components/footer"
 import { InfiniteSlider } from "./components/motion-primitives/infinite-slider"
 import { HeroHeader } from "./components/header"
+import React from "react"
 
 export default function LandingPage() {
 
@@ -117,13 +118,21 @@ export default function LandingPage() {
                             </div>
                         </div>
                         <div className="aspect-2/3 absolute inset-1 z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
-                            <video
-                                autoPlay
-                                loop
-                                muted
-                                className="size-full object-cover opacity-50 invert dark:opacity-35 dark:invert-0 dark:lg:opacity-75"
-                                src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477">
-                            </video>
+                            {/* Video with error handling */}
+                            {(() => {
+                                const [videoError, setVideoError] = React.useState(false);
+                                if (videoError) return null;
+                                return (
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        className="size-full object-cover opacity-50 invert dark:opacity-35 dark:invert-0 dark:lg:opacity-75"
+                                        src="hero.mp4"
+                                        onError={() => setVideoError(true)}
+                                    />
+                                );
+                            })()}
                         </div>
                     </div>
                 </section>
