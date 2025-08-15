@@ -233,8 +233,9 @@ export default function LandingPage() {
             <section id="benefits" className="py-20 w-full max-w-7xl mx-auto px-4">
                 <div className="container mx-auto px-4">
                     <div className="items-center mx-auto justify-center *:flex">
-                        <div className="space-y-8">
-                            <div>
+                        <div className="flex flex-col sm:flex-row gap-8">
+                            {/* Proven Results Section */}
+                            <div className="w-full sm:w-1/2 flex flex-col justify-center">
                                 <Badge variant="outline" className="mb-4">
                                     Proven Results
                                 </Badge>
@@ -245,18 +246,21 @@ export default function LandingPage() {
                                 </p>
                             </div>
 
-                            <div className="grid sm:grid-cols-2 gap-6">
-                                {benefits.map((benefit, index) => (
-                                    <div key={index} className="flex gap-4">
-                                        <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                                            {benefit.icon}
+                            {/* Benefits Section */}
+                            <div className="w-full sm:w-1/2">
+                                <div className="grid grid-cols-1 gap-6">
+                                    {benefits.map((benefit, index) => (
+                                        <div key={index} className="flex gap-4">
+                                            <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                {benefit.icon}
+                                            </div>
+                                            <div>
+                                                <h3 className="font-semibold mb-1">{benefit.title}</h3>
+                                                <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h3 className="font-semibold mb-1">{benefit.title}</h3>
-                                            <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
