@@ -15,18 +15,18 @@ export function parseTSVContent(
   content: string,
   locus: string
 ): HLAAlleleData[] {
-  console.log(
-    `[v0] Parsing TSV content for ${locus}, content length: ${content.length}`
-  );
+//   console.log(
+//     `Parsing TSV content for ${locus}, content length: ${content.length}`
+//   );
 
   const lines = content.trim().split("\n");
   if (lines.length < 2) {
-    console.warn(`[v0] TSV file for ${locus} has insufficient data`);
+    // console.warn(`TSV file for ${locus} has insufficient data`);
     return [];
   }
 
   const headers = lines[0].split("\t");
-  console.log(`[v0] TSV headers for ${locus}:`, headers);
+//   console.log(`TSV headers for ${locus}:`, headers);
 
   const alleleIndex = headers.findIndex((h) => h.toLowerCase() === "allele");
   const frequencyIndex = headers.findIndex(
@@ -37,14 +37,14 @@ export function parseTSVContent(
   );
 
   console.log(
-    `[v0] Column indices for ${locus} - allele: ${alleleIndex}, frequency: ${frequencyIndex}, population: ${populationIndex}`
+    `Column indices for ${locus} - allele: ${alleleIndex}, frequency: ${frequencyIndex}, population: ${populationIndex}`
   );
 
   if (alleleIndex === -1 || frequencyIndex === -1) {
-    console.warn(
-      `[v0] Could not find allele/frequency columns in ${locus} data`
-    );
-    console.warn(`[v0] Available headers:`, headers);
+    // console.warn(
+    //   `Could not find allele/frequency columns in ${locus} data`
+    // );
+    // console.warn(`Available headers:`, headers);
     return [];
   }
 
@@ -88,10 +88,10 @@ export function parseTSVContent(
     .sort((a, b) => b.frequency - a.frequency)
     .slice(0, 30);
 
-  console.log(
-    `[v0] Successfully parsed ${sortedData.length} unique alleles for ${locus}`
-  );
-  console.log(`[v0] Top 5 alleles for ${locus}:`, sortedData.slice(0, 5));
+//   console.log(
+//     `Successfully parsed ${sortedData.length} unique alleles for ${locus}`
+//   );
+//   console.log(`Top 5 alleles for ${locus}:`, sortedData.slice(0, 5));
 
   return sortedData;
 }
@@ -116,49 +116,49 @@ export async function loadHLAData(): Promise<ParsedTSVData> {
   const hlaLoci = ["A", "B", "C", "DPA1", "DPB1", "DQA1", "DQB1", "DRB1"];
   const hlaData: ParsedTSVData = {};
 
-  console.log("[v0] Starting to load HLA data from TSV files...");
+//   console.log("Starting to load HLA data from TSV files...");
 
   for (const locus of hlaLoci) {
     try {
-      console.log(`[v0] Attempting to load ${locus}.tsv...`);
+    //   console.log(`Attempting to load ${locus}.tsv...`);
 
       const response = await fetch(`/src/data/${locus}.tsv`);
       if (!response.ok) {
-        console.warn(
-          `[v0] Could not load ${locus}.tsv file - HTTP ${response.status}`
-        );
+        // console.warn(
+        //   `Could not load ${locus}.tsv file - HTTP ${response.status}`
+        // );
         const altResponse = await fetch(`/data/${locus}.tsv`);
         if (!altResponse.ok) {
-          console.warn(`[v0] Alternative path also failed for ${locus}.tsv`);
+        //   console.warn(`Alternative path also failed for ${locus}.tsv`);
           continue;
         }
         const content = await altResponse.text();
-        console.log(
-          `[v0] Loaded ${locus}.tsv from public/data, size: ${content.length} characters`
-        );
+        // console.log(
+        //   `Loaded ${locus}.tsv from public/data, size: ${content.length} characters`
+        // );
         hlaData[locus] = parseTSVContent(content, locus);
         continue;
       }
 
       const content = await response.text();
-      console.log(
-        `[v0] Loaded ${locus}.tsv content, size: ${content.length} characters`
-      );
+    //   console.log(
+    //     `Loaded ${locus}.tsv content, size: ${content.length} characters`
+    //   );
 
       hlaData[locus] = parseTSVContent(content, locus);
 
-      console.log(
-        `[v0] Loaded ${hlaData[locus].length} alleles for HLA-${locus}`
-      );
+    //   console.log(
+    //     `Loaded ${hlaData[locus].length} alleles for HLA-${locus}`
+    //   );
     } catch (error) {
-      console.error(`[v0] Error loading ${locus}.tsv:`, error);
+    //   console.error(`Error loading ${locus}.tsv:`, error);
     }
   }
 
-  console.log(
-    "[v0] Finished loading HLA data. Total loci loaded:",
-    Object.keys(hlaData).length
-  );
+//   console.log(
+//     "Finished loading HLA data. Total loci loaded:",
+//     Object.keys(hlaData).length
+//   );
   return hlaData;
 }
 
