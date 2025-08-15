@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { Download, FileText, Database, Printer, Share2, CheckCircle, Braces } from "lucide-react"
+import { Download, FileText, Printer, Share2, CheckCircle, Braces } from "lucide-react"
 import { generatePDFReport, downloadJSONReport } from "@/lib/pdf-export"
 import type { Donor } from "@/lib/mock-data"
 import { useState } from "react"
@@ -115,7 +115,7 @@ export function ExportControls({
     }
 
     return (
-        <Card className="w-full rounded-3xl shadow-none border border-accent border-2  ">
+        <Card className="w-full rounded-3xl shadow-none border-accent border-2  ">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                     Export & Share Results

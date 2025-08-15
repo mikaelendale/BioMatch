@@ -182,7 +182,7 @@ export function OrganIcon({ organ, className = "", size = "md" }: OrganIconProps
                                         </g>
                                     </g>
                                 </g>
-                                <path style={{ opacity: 0.2, fill: "#FFFFFF", enableBackground: "new" }} d="M0,259.15C0,402.276,116.025,518.3,259.15,518.3V0.004 C116.024,0.004,0,116.029,0,259.15z"></path>
+                                <path style={{ opacity: 0.2, fill: "#FFFFFF" }} d="M0,259.15C0,402.276,116.025,518.3,259.15,518.3V0.004 C116.024,0.004,0,116.029,0,259.15z"></path>
                             </g>
                         </g>
                     </g>

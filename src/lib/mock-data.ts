@@ -109,10 +109,6 @@ const locations = [
   "Detroit, MI",
   "Oklahoma City, OK",
 ];
-const medicalStatuses = ["Excellent", "Good", "Fair", "Stable"];
-const availabilities = ["Available", "Pending", "Reserved"];
-const organConditions = ["excellent", "good", "fair"] as const;
-const donorTypes = ["living", "deceased"] as const;
 
 function getRandomElement<T>(array: T[]): T {
   return array[Math.floor(Math.random() * array.length)];

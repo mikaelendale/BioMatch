@@ -9,8 +9,6 @@ import {
     Zap,
     Shield,
     Users,
-    TrendingUp,
-    Clock,
     Award,
     ArrowRight,
     Target,
@@ -20,9 +18,6 @@ import {
     AlignVerticalJustifyEnd,
 } from "lucide-react"
 import Footer from "./components/footer"
-import { ModeToggle } from "./components/mode-toggle"
-import React from "react"
-// import { ProgressiveBlur } from "./components/motion-primitives/progressive-blur"
 import { InfiniteSlider } from "./components/motion-primitives/infinite-slider"
 import { HeroHeader } from "./components/header"
 

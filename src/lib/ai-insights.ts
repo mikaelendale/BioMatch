@@ -147,7 +147,6 @@ Maintain medical accuracy while providing actionable insights for transplant tea
 }
 
 export async function generateRealTimeRiskAssessment(
-  donorId: string,
   compatibility: number,
   organType: string,
   urgencyScore: number

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
-import { ChevronLeft, ChevronRight, MapPin, Calendar, Droplets, User, Activity, Clock, Shield, Timer, SearchCheck, ScanHeart, UserSearchIcon } from "lucide-react"
+import { ChevronLeft, ChevronRight, MapPin, Calendar, Droplets, User, Clock, Timer, SearchCheck, ScanHeart, UserSearchIcon } from "lucide-react"
 import { OrganIcon } from "./organ-icon"
 import type { Donor } from "@/lib/mock-data"
 

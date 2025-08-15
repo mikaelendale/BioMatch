@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Loader2, Brain, TrendingUp, AlertCircle, CheckCircle, Target, Shield, Activity, Beef, Blend, SignalHigh, ChartArea, TrendingUpDown, SearchCodeIcon, SearchIcon, FlaskConical, CircleCheck } from "lucide-react"
+import { Loader2, Brain, AlertCircle, Beef, Blend, SignalHigh, ChartArea, FlaskConical, CircleCheck } from "lucide-react"
 import { generateAIInsights } from "@/lib/ai-insights"
 import type { Donor } from "@/lib/mock-data"
 
@@ -568,7 +568,7 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-4">
-                            {topMatches.slice(0, 3).map((match, index) => (
+                            {topMatches.slice(0, 3).map((match) => (
                                 <div key={match.id} className="border rounded-xl p-4 space-y-3">
                                     <div className="flex items-center justify-between">
                                         <span className="font-medium">Donor #{match.id}</span>

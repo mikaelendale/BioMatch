@@ -14,36 +14,18 @@ import { OrganIcon } from "@/components/organ-icon"
 import { generateMockDonors, type Donor } from "@/lib/mock-data"
 import { calculateCompatibility } from "@/lib/matching-algorithm"
 import {
-    AlertTriangle,
-    Heart,
-    Users,
-    Dna,
-    Database,
-    Zap,
-    Shield,
-    TrendingUp,
-    Clock,
-    Search,
-    Activity,
     Download,
     Filter,
     Package,
     GitCompare,
-    Menu,
-    X,
     CircleCheck,
-    Circle,
-    LoaderCircle,
     LoaderPinwheel,
     ArrowRight,
     SearchCheck,
     SquareDashedMousePointerIcon,
     TrendingUpDown,
     FileDown,
-    BrainCircuit,
 } from "lucide-react"
-import { ModeToggle } from "./components/mode-toggle"
-import React from "react"
 import Footer from "./components/footer"
 import { HeroHeader } from "./components/header"
 
@@ -64,7 +46,7 @@ export default function Home() {
     const [currentTime, setCurrentTime] = useState(new Date())
     const [donorCount, setDonorCount] = useState(0)
     const [systemUptime, setSystemUptime] = useState(0)
-    const [aiInsights, setAiInsights] = useState<string>("")
+    const [aiInsights] = useState<string>("")
 
     useEffect(() => {
         const timeInterval = setInterval(() => {
@@ -165,14 +147,14 @@ export default function Home() {
         return `${hours}h ${minutes}m`
     }
 
+    console.log("Current Time:", currentTime);
     const organDistribution = matches.reduce(
         (acc, match) => {
             acc[match.organ] = (acc[match.organ] || 0) + 1
             return acc
         },
         {} as Record<string, number>,
-    )
-    const [menuState, setMenuState] = React.useState(false)
+    ) 
 
     return (
         <>

@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Loader2, Sparkles, Dna, Search, Info } from "lucide-react"
+import { Loader2, Info } from "lucide-react"
 import { OrganIcon } from "./organ-icon"
 
 interface HLAData {
