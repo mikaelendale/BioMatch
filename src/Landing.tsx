@@ -93,7 +93,7 @@ export default function LandingPage() {
             {/* Hero Section */}
             <main className="overflow-x-hidden">
                 <section>
-                    <div className="py-24 md:pb-32 lg:pb-36 lg:pt-72">
+                    <div className="pt-27 pb-10 md:pb-32 lg:pb-20 lg:pt-72">
                         <div className="relative mx-auto z-20 flex max-w-7xl flex-col px-6 lg:block lg:px-12">
                             <div className="mx-auto max-w-lg text-center lg:ml-0 lg:max-w-full lg:text-left">
                                 <h1 className="mt-8 max-w-2xl text-primary text-balance text-5xl md:text-6xl lg:mt-16 xl:text-7xl">
@@ -198,7 +198,7 @@ export default function LandingPage() {
             </main>
 
             {/* Features Section */}
-            <section id="features" className="pt-50 w-full max-w-7xl mx-auto px-4">
+            <section id="features" className="sm:pt-50 pt-20 w-full max-w-7xl mx-auto px-4">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <Badge variant="outline" className="mb-4">

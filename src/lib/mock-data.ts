@@ -1,3 +1,8 @@
+import {
+  generateRealisticHLASync,
+  generatePopulationSpecificHLAFromTSV,
+} from "./real-hla-data";
+
 export interface HLAProfile {
   hlaA: string;
   hlaB: string;
@@ -109,20 +114,24 @@ const locations = [
   "Detroit, MI",
   "Oklahoma City, OK",
 ];
+const medicalStatuses = ["Excellent", "Good", "Fair", "Stable"];
+const availabilities = ["Available", "Pending", "Reserved"];
+const organConditions = ["excellent", "good", "fair"] as const;
+const donorTypes = ["living", "deceased"] as const;
 
 function getRandomElement<T>(array: T[]): T {
   return array[Math.floor(Math.random() * array.length)];
 }
 
 function generateRandomHLA(): HLAProfile {
-  return {
-    hlaA: getRandomElement(commonHLAAlleles.hlaA),
-    hlaB: getRandomElement(commonHLAAlleles.hlaB),
-    hlaDR: getRandomElement(commonHLAAlleles.hlaDR),
-  };
+  console.log("[v0] Generating HLA profile using real TSV data");
+  const hlaProfile = generateRealisticHLASync();
+  console.log("[v0] Generated HLA profile:", hlaProfile);
+  return hlaProfile;
 }
 
 export function generateMockDonors(count: number): Donor[] {
+  console.log(`[v0] Generating ${count} mock donors using real HLA data`);
   const donors: Donor[] = [];
 
   for (let i = 1; i <= count; i++) {
@@ -159,13 +168,15 @@ export function generateMockDonors(count: number): Donor[] {
       )
     );
 
+    const hlaProfile = generateRandomHLA();
+
     donors.push({
       id: `D${i.toString().padStart(4, "0")}`,
       age: Math.floor(Math.random() * (65 - 18) + 18),
       bloodType: getRandomElement(bloodTypes),
       organ,
       location: getRandomElement(locations),
-      hla: generateRandomHLA(),
+      hla: hlaProfile,
       medicalStatus,
       availability,
       urgencyScore,
@@ -178,32 +189,39 @@ export function generateMockDonors(count: number): Donor[] {
     });
   }
 
+  console.log(
+    `[v0] Successfully generated ${donors.length} donors with real HLA data`
+  );
+  console.log(
+    "[v0] Sample donor HLA profiles:",
+    donors.slice(0, 3).map((d) => ({ id: d.id, hla: d.hla }))
+  );
   return donors;
 }
 
-// Generate some high-compatibility donors for demo purposes
 export function generateHighCompatibilityDonors(
   recipientHLA: HLAProfile,
   count = 5
 ): Donor[] {
+  console.log(
+    `[v0] Generating ${count} high compatibility donors for recipient:`,
+    recipientHLA
+  );
   const donors: Donor[] = [];
 
   for (let i = 1; i <= count; i++) {
-    // Create donors with some matching HLA alleles
+    // Create donors with some matching HLA alleles using realistic frequencies
+    const baseHLA = generateRandomHLA();
     const matchingHLA: HLAProfile = {
-      hlaA:
-        Math.random() > 0.3
-          ? recipientHLA.hlaA
-          : getRandomElement(commonHLAAlleles.hlaA),
-      hlaB:
-        Math.random() > 0.3
-          ? recipientHLA.hlaB
-          : getRandomElement(commonHLAAlleles.hlaB),
-      hlaDR:
-        Math.random() > 0.3
-          ? recipientHLA.hlaDR
-          : getRandomElement(commonHLAAlleles.hlaDR),
+      hlaA: Math.random() > 0.3 ? recipientHLA.hlaA : baseHLA.hlaA,
+      hlaB: Math.random() > 0.3 ? recipientHLA.hlaB : baseHLA.hlaB,
+      hlaDR: Math.random() > 0.3 ? recipientHLA.hlaDR : baseHLA.hlaDR,
     };
+
+    console.log(
+      `[v0] Generated high compatibility donor ${i} HLA:`,
+      matchingHLA
+    );
 
     donors.push({
       id: `HC${i.toString().padStart(3, "0")}`,
@@ -218,6 +236,72 @@ export function generateHighCompatibilityDonors(
       donorType: "living",
       organCondition: "excellent",
       preservationTime: undefined,
+    });
+  }
+
+  console.log(`[v0] Generated ${donors.length} high compatibility donors`);
+  return donors;
+}
+
+export async function generatePopulationSpecificDonorsAsync(
+  population: "caucasian" | "african" | "asian" | "hispanic",
+  count: number
+): Promise<Donor[]> {
+  const donors: Donor[] = [];
+
+  for (let i = 1; i <= count; i++) {
+    const availability =
+      Math.random() > 0.8
+        ? getRandomElement(["Pending", "Reserved"])
+        : "Available";
+    const medicalStatus =
+      Math.random() > 0.9
+        ? "Fair"
+        : getRandomElement(["Excellent", "Good", "Stable"]);
+    const organ = getRandomElement(organs);
+    const donorType =
+      organ === "Kidney" && Math.random() > 0.7 ? "living" : "deceased";
+    const organCondition =
+      Math.random() > 0.8 ? "fair" : Math.random() > 0.5 ? "good" : "excellent";
+
+    const baseUrgency =
+      organ === "Heart"
+        ? 95
+        : organ === "Lung"
+        ? 90
+        : organ === "Liver"
+        ? 85
+        : 70;
+    const conditionModifier =
+      organCondition === "excellent" ? 10 : organCondition === "good" ? 5 : -5;
+    const urgencyScore = Math.min(
+      100,
+      Math.max(
+        0,
+        baseUrgency + conditionModifier + Math.floor(Math.random() * 10) - 5
+      )
+    );
+
+    const hla = await generatePopulationSpecificHLAFromTSV(population);
+
+    donors.push({
+      id: `${population.toUpperCase().slice(0, 2)}${i
+        .toString()
+        .padStart(3, "0")}`,
+      age: Math.floor(Math.random() * (65 - 18) + 18),
+      bloodType: getRandomElement(bloodTypes),
+      organ,
+      location: getRandomElement(locations),
+      hla,
+      medicalStatus,
+      availability,
+      urgencyScore,
+      donorType,
+      organCondition,
+      preservationTime:
+        donorType === "deceased"
+          ? Math.floor(Math.random() * 12) + 1
+          : undefined,
     });
   }
 
