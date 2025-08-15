@@ -147,7 +147,7 @@ export function HLAInputForm({
             </Card>
 
             {/* Action Buttons */}
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-3">
                 <Button
                     variant="outline"
                     onClick={onSampleData}
