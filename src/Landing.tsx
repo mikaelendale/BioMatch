@@ -117,7 +117,7 @@ export default function LandingPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="aspect-2/3 absolute inset-1 z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
+                        <div className="aspect-2/3 absolute inset-1 z-10 overflow-hidden rounded-3xl lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
                             {/* Video with error handling */}
                             {(() => {
                                 const [videoError, setVideoError] = React.useState(false);
@@ -138,7 +138,7 @@ export default function LandingPage() {
                 </section>
 
                 {/* Added trusted institutions section with medical logos */}
-                <section className="bg-background pb-2">
+                {/* <section className="bg-background pb-2">
                     <div className="group relative m-auto max-w-7xl px-6 z-20">
                         <div className="flex flex-col items-center md:flex-row ">
                             <div className="md:max-w-44 md:border-r md:pr-6">
@@ -203,11 +203,11 @@ export default function LandingPage() {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
             </main>
 
             {/* Features Section */}
-            <section id="features" className="pt-20 sm:pt-70 w-full max-w-7xl mx-auto px-4">
+            <section id="features" className="pt-30 sm:pt-80 md:pt-10 w-full max-w-7xl mx-auto px-4">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <Badge variant="outline" className="mb-4">
