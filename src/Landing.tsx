@@ -198,7 +198,7 @@ export default function LandingPage() {
             </main>
 
             {/* Features Section */}
-            <section id="features" className="sm:pt-50 pt-20 w-full max-w-7xl mx-auto px-4">
+            <section id="features" className=" pt-70 w-full max-w-7xl mx-auto px-4">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <Badge variant="outline" className="mb-4">
@@ -264,8 +264,8 @@ export default function LandingPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 text-primary-foreground">
-                <div className="container mx-auto px-4 text-center bg-muted-foreground rounded-3xl p-12 w-full max-w-7xl">
+            <section className="py-20 px-4 text-primary">
+                <div className="container mx-auto px-4 text-center bg-primary-foreground rounded-3xl p-12 w-full max-w-7xl">
                     <div className="max-w-3xl mx-auto space-y-8">
                         <h2 className="text-3xl lg:text-4xl font-bold">Ready to Transform Your Organ Matching Process?</h2>
                         <p className="text-xl opacity-90">
@@ -282,7 +282,7 @@ export default function LandingPage() {
                                 <Button
                                     size="lg"
                                     variant="outline"
-                                    className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
+                                    className="text-lg px-8 py-6  hover:bg-primary-foreground hover:text-primary bg-transparent"
                                 >
                                     Contribute
                                 </Button>
