@@ -5,17 +5,17 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
     Dna,
-    Brain,
-    Zap,
-    Shield,
     Users,
     Award,
     ArrowRight,
-    Target,
-    BarChart3,
     ChevronRight,
     GitGraphIcon,
     AlignVerticalJustifyEnd,
+    ChartArea,
+    CloudCog,
+    Shredder,
+    TrendingUpDown,
+    CableCar,
 } from "lucide-react"
 import Footer from "./components/footer"
 import { InfiniteSlider } from "./components/motion-primitives/infinite-slider"
@@ -31,31 +31,31 @@ export default function LandingPage() {
                 "Advanced HLA compatibility analysis for kidney, liver, heart, lung, and pancreas transplants with organ-specific algorithms.",
         },
         {
-            icon: <Brain className="h-8 w-8 text-primary" />,
+            icon: <CloudCog className="h-8 w-8 text-primary" />,
             title: "AI-Powered Insights",
             description:
                 "Machine learning algorithms provide predictive analytics, success probability calculations, and personalized clinical recommendations.",
         },
         {
-            icon: <Zap className="h-8 w-8 text-primary" />,
+            icon: <ChartArea className="h-8 w-8 text-primary" />,
             title: "Real-Time Analysis",
             description:
                 "Lightning-fast compatibility analysis with comprehensive results in under 3 seconds, enabling rapid clinical decision-making.",
         },
         {
-            icon: <Shield className="h-8 w-8 text-primary" />,
+            icon: <Shredder className="h-8 w-8 text-primary" />,
             title: "Clinical-Grade Security",
             description:
                 "HIPAA-compliant platform with enterprise-level security, audit trails, and comprehensive data protection protocols.",
         },
         {
-            icon: <Target className="h-8 w-8 text-primary" />,
+            icon: <TrendingUpDown className="h-8 w-8 text-primary" />,
             title: "Precision Matching",
             description:
                 "Advanced cross-reactive group analysis and partial match detection for optimal donor-recipient compatibility assessment.",
         },
         {
-            icon: <BarChart3 className="h-8 w-8 text-primary" />,
+            icon: <CableCar className="h-8 w-8 text-primary" />,
             title: "Professional Reporting",
             description:
                 "Comprehensive PDF reports with detailed compatibility breakdowns, risk assessments, and clinical recommendations for medical teams.",
