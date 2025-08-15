@@ -28,6 +28,7 @@ import {
 } from "lucide-react"
 import Footer from "./components/footer"
 import { HeroHeader } from "./components/header"
+import { Helmet } from "react-helmet-async"
 
 export default function Home() {
     const [recipientHLA, setRecipientHLA] = useState({
@@ -158,6 +159,11 @@ export default function Home() {
 
     return (
         <>
+            <Helmet>
+                <title>BioMatch App - Organ Matching Dashboard</title>
+                <meta name="description" content="BioMatch App: Manage organ transplant matches, view AI insights, and generate clinical reports." />
+                <link rel="canonical" href="https://bio-match-usa.vercel.app/" />
+            </Helmet>
             <div className="min-h-screen bg-background">
                 {/* Enhanced Header */}
                 <HeroHeader />

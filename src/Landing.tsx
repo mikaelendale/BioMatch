@@ -20,9 +20,9 @@ import {
 import Footer from "./components/footer"
 import { InfiniteSlider } from "./components/motion-primitives/infinite-slider"
 import { HeroHeader } from "./components/header"
+import { Helmet } from "react-helmet-async"
 
 export default function LandingPage() {
-
     const features = [
         {
             icon: <Dna className="h-8 w-8 text-primary" />,
@@ -86,214 +86,223 @@ export default function LandingPage() {
     ]
 
     return (
-        <div className="min-h-screen bg-background">
-            {/* Enhanced Header */}
-            <HeroHeader />
+        <>
+            <Helmet>
+                <title>BioMatch - Advanced Multi-Organ AI Matching</title>
+                <meta name="description" content="BioMatch uses AI and DNA analysis for fast, accurate multi-organ transplant matching. HIPAA-compliant, secure, and trusted by medical professionals." />
+                <meta name="keywords" content="organ transplant, AI matching, DNA analysis, kidney, liver, heart, lung, pancreas, medical technology" />
+                <link rel="canonical" href="https://bio-match-usa.vercel.app/" />
+                {/* Add more meta tags as above */}
+            </Helmet>
+            <div className="min-h-screen bg-background">
+                {/* Enhanced Header */}
+                <HeroHeader />
 
-            {/* Hero Section */}
-            <main className="overflow-x-hidden">
-                <section>
-                    <div className="py-24 md:pb-32 lg:pb-36 lg:pt-72">
-                        <div className="relative mx-auto z-20 flex max-w-7xl flex-col px-6 lg:block lg:px-12">
-                            <div className="mx-auto max-w-lg text-center lg:ml-0 lg:max-w-full lg:text-left">
-                                <h1 className="mt-8 max-w-2xl text-primary text-balance text-5xl md:text-6xl lg:mt-16 xl:text-7xl">
-                                    Save Lives with DNA Precision
-                                </h1>
-                                <p className="mt-8 max-w-2xl text-balance text-lg">
-                                    Revolutionary AI-powered organ donor matching system that increases transplant success rates through advanced HLA compatibility analysis.
-                                </p>
+                {/* Hero Section */}
+                <main className="overflow-x-hidden">
+                    <section>
+                        <div className="py-24 md:pb-32 lg:pb-36 lg:pt-72">
+                            <div className="relative mx-auto z-20 flex max-w-7xl flex-col px-6 lg:block lg:px-12">
+                                <div className="mx-auto max-w-lg text-center lg:ml-0 lg:max-w-full lg:text-left">
+                                    <h1 className="mt-8 max-w-2xl text-primary text-balance text-5xl md:text-6xl lg:mt-16 xl:text-7xl">
+                                        Save Lives with DNA Precision
+                                    </h1>
+                                    <p className="mt-8 max-w-2xl text-balance text-lg">
+                                        Revolutionary AI-powered organ donor matching system that increases transplant success rates through advanced HLA compatibility analysis.
+                                    </p>
 
-                                <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
-                                    <Button
-                                        asChild
-                                        size="lg"
-                                        className="h-12 rounded-full pl-5 pr-3 text-base">
-                                        <a href="/app">
-                                            <span className="text-nowrap">Start Matching</span>
-                                            <ChevronRight className="ml-1" />
-                                        </a>
-                                    </Button>
+                                    <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
+                                        <Button
+                                            asChild
+                                            size="lg"
+                                            className="h-12 rounded-full pl-5 pr-3 text-base">
+                                            <a href="/app">
+                                                <span className="text-nowrap">Start Matching</span>
+                                                <ChevronRight className="ml-1" />
+                                            </a>
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="aspect-2/3 absolute inset-1 z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
+                                <video
+                                    autoPlay
+                                    loop
+                                    muted
+                                    className="size-full object-cover opacity-50 invert dark:opacity-35 dark:invert-0 dark:lg:opacity-75"
+                                    src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477">
+                                </video>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Added trusted institutions section with medical logos */}
+                    <section className="bg-background pb-2">
+                        <div className="group relative m-auto max-w-7xl px-6 z-20">
+                            <div className="flex flex-col items-center md:flex-row ">
+                                <div className="md:max-w-44 md:border-r md:pr-6">
+                                    <p className="text-end text-sm">Trusted by leading hospitals (demo)</p>
+                                </div>
+                                <div className="relative py-6 md:w-[calc(100%-11rem)]">
+                                    <InfiniteSlider
+                                        speedOnHover={20}
+                                        speed={40}
+                                        gap={112}>
+                                        <div className="flex">
+                                            <div className="mx-auto h-5 w-fit flex items-center text-sm font-semibold text-primary">
+                                                Mayo Clinic
+                                            </div>
+                                        </div>
+
+                                        <div className="flex">
+                                            <div className="mx-auto h-4 w-fit flex items-center text-sm font-semibold text-primary">
+                                                Johns Hopkins
+                                            </div>
+                                        </div>
+
+                                        <div className="flex">
+                                            <div className="mx-auto h-4 w-fit flex items-center text-sm font-semibold text-primary">
+                                                Cleveland Clinic
+                                            </div>
+                                        </div>
+
+                                        <div className="flex">
+                                            <div className="mx-auto h-5 w-fit flex items-center text-sm font-semibold text-primary">
+                                                Mass General
+                                            </div>
+                                        </div>
+
+                                        <div className="flex">
+                                            <div className="mx-auto h-5 w-fit flex items-center text-sm font-semibold text-primary">
+                                                UCSF Medical
+                                            </div>
+                                        </div>
+
+                                        <div className="flex">
+                                            <div className="mx-auto h-4 w-fit flex items-center text-sm font-semibold text-primary">
+                                                Cedars-Sinai
+                                            </div>
+                                        </div>
+
+                                        <div className="flex">
+                                            <div className="mx-auto h-7 w-fit flex items-center text-sm font-semibold text-primary">
+                                                Mount Sinai
+                                            </div>
+                                        </div>
+
+                                        <div className="flex">
+                                            <div className="mx-auto h-6 w-fit flex items-center text-sm font-semibold text-primary">
+                                                NYU Langone
+                                            </div>
+                                        </div>
+                                    </InfiniteSlider>
+
+                                    <div className="bg-gradient-to-r opacity-60 rounded-xl from-background absolute inset-y-0 left-0 w-20"></div>
+                                    <div className="bg-gradient-to-l opacity-60 rounded-xl from-background absolute inset-y-0 right-0 w-20"></div>
                                 </div>
                             </div>
                         </div>
-                        <div className="aspect-2/3 absolute inset-1 z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
-                            <video
-                                autoPlay
-                                loop
-                                muted
-                                className="size-full object-cover opacity-50 invert dark:opacity-35 dark:invert-0 dark:lg:opacity-75"
-                                src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477">
-                            </video>
+                    </section>
+                </main>
+
+                {/* Features Section */}
+                <section id="features" className="pt-50 w-full max-w-7xl mx-auto px-4">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <Badge variant="outline" className="mb-4">
+                                Advanced Technology
+                            </Badge>
+                            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Cutting-Edge Features for Medical Excellence</h2>
+                            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                                Our comprehensive platform combines advanced DNA analysis with AI-powered insights to deliver unparalleled
+                                accuracy in organ matching.
+                            </p>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {features.map((feature, index) => (
+                                <Card key={index} className="p-6  rounded-xl border-dashed border-2 transition-all shadow-none">
+                                    <CardContent className="p-0">
+                                        <div className="space-y-4">
+                                            <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
+                                                {feature.icon}
+                                            </div>
+                                            <h3 className="text-xl font-semibold">{feature.title}</h3>
+                                            <p className="text-muted-foreground">{feature.description}</p>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            ))}
                         </div>
                     </div>
                 </section>
 
-                {/* Added trusted institutions section with medical logos */}
-                <section className="bg-background pb-2">
-                    <div className="group relative m-auto max-w-7xl px-6 z-20">
-                        <div className="flex flex-col items-center md:flex-row ">
-                            <div className="md:max-w-44 md:border-r md:pr-6">
-                                <p className="text-end text-sm">Trusted by leading hospitals (demo)</p>
-                            </div>
-                            <div className="relative py-6 md:w-[calc(100%-11rem)]">
-                                <InfiniteSlider
-                                    speedOnHover={20}
-                                    speed={40}
-                                    gap={112}>
-                                    <div className="flex">
-                                        <div className="mx-auto h-5 w-fit flex items-center text-sm font-semibold text-primary">
-                                            Mayo Clinic
-                                        </div>
-                                    </div>
+                {/* Benefits Section */}
+                <section id="benefits" className="py-20 w-full max-w-7xl mx-auto px-4">
+                    <div className="container mx-auto px-4">
+                        <div className="items-center mx-auto justify-center *:flex">
+                            <div className="space-y-8">
+                                <div>
+                                    <Badge variant="outline" className="mb-4">
+                                        Proven Results
+                                    </Badge>
+                                    <h2 className="text-3xl lg:text-4xl font-bold mb-4">Measurable Impact on Patient Outcomes</h2>
+                                    <p className="text-xl text-muted-foreground">
+                                        Join hundreds of medical institutions already using BioMatch to improve transplant success rates and
+                                        save more lives.
+                                    </p>
+                                </div>
 
-                                    <div className="flex">
-                                        <div className="mx-auto h-4 w-fit flex items-center text-sm font-semibold text-primary">
-                                            Johns Hopkins
+                                <div className="grid sm:grid-cols-2 gap-6">
+                                    {benefits.map((benefit, index) => (
+                                        <div key={index} className="flex gap-4">
+                                            <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                                                {benefit.icon}
+                                            </div>
+                                            <div>
+                                                <h3 className="font-semibold mb-1">{benefit.title}</h3>
+                                                <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div className="flex">
-                                        <div className="mx-auto h-4 w-fit flex items-center text-sm font-semibold text-primary">
-                                            Cleveland Clinic
-                                        </div>
-                                    </div>
-
-                                    <div className="flex">
-                                        <div className="mx-auto h-5 w-fit flex items-center text-sm font-semibold text-primary">
-                                            Mass General
-                                        </div>
-                                    </div>
-
-                                    <div className="flex">
-                                        <div className="mx-auto h-5 w-fit flex items-center text-sm font-semibold text-primary">
-                                            UCSF Medical
-                                        </div>
-                                    </div>
-
-                                    <div className="flex">
-                                        <div className="mx-auto h-4 w-fit flex items-center text-sm font-semibold text-primary">
-                                            Cedars-Sinai
-                                        </div>
-                                    </div>
-
-                                    <div className="flex">
-                                        <div className="mx-auto h-7 w-fit flex items-center text-sm font-semibold text-primary">
-                                            Mount Sinai
-                                        </div>
-                                    </div>
-
-                                    <div className="flex">
-                                        <div className="mx-auto h-6 w-fit flex items-center text-sm font-semibold text-primary">
-                                            NYU Langone
-                                        </div>
-                                    </div>
-                                </InfiniteSlider>
-
-                                <div className="bg-gradient-to-r opacity-60 rounded-xl from-background absolute inset-y-0 left-0 w-20"></div>
-                                <div className="bg-gradient-to-l opacity-60 rounded-xl from-background absolute inset-y-0 right-0 w-20"></div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
-            </main>
 
-            {/* Features Section */}
-            <section id="features" className="pt-50 w-full max-w-7xl mx-auto px-4">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <Badge variant="outline" className="mb-4">
-                            Advanced Technology
-                        </Badge>
-                        <h2 className="text-3xl lg:text-4xl font-bold mb-4">Cutting-Edge Features for Medical Excellence</h2>
-                        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                            Our comprehensive platform combines advanced DNA analysis with AI-powered insights to deliver unparalleled
-                            accuracy in organ matching.
-                        </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {features.map((feature, index) => (
-                            <Card key={index} className="p-6  rounded-xl border-dashed border-2 transition-all shadow-none">
-                                <CardContent className="p-0">
-                                    <div className="space-y-4">
-                                        <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
-                                            {feature.icon}
-                                        </div>
-                                        <h3 className="text-xl font-semibold">{feature.title}</h3>
-                                        <p className="text-muted-foreground">{feature.description}</p>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Benefits Section */}
-            <section id="benefits" className="py-20 w-full max-w-7xl mx-auto px-4">
-                <div className="container mx-auto px-4">
-                    <div className="items-center mx-auto justify-center *:flex">
-                        <div className="space-y-8">
-                            <div>
-                                <Badge variant="outline" className="mb-4">
-                                    Proven Results
-                                </Badge>
-                                <h2 className="text-3xl lg:text-4xl font-bold mb-4">Measurable Impact on Patient Outcomes</h2>
-                                <p className="text-xl text-muted-foreground">
-                                    Join hundreds of medical institutions already using BioMatch to improve transplant success rates and
-                                    save more lives.
-                                </p>
-                            </div>
-
-                            <div className="grid sm:grid-cols-2 gap-6">
-                                {benefits.map((benefit, index) => (
-                                    <div key={index} className="flex gap-4">
-                                        <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                                            {benefit.icon}
-                                        </div>
-                                        <div>
-                                            <h3 className="font-semibold mb-1">{benefit.title}</h3>
-                                            <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                {/* CTA Section */}
+                <section className="py-20 text-primary-foreground">
+                    <div className="container mx-auto px-4 text-center bg-muted-foreground rounded-3xl p-12 w-full max-w-7xl">
+                        <div className="max-w-3xl mx-auto space-y-8">
+                            <h2 className="text-3xl lg:text-4xl font-bold">Ready to Transform Your Organ Matching Process?</h2>
+                            <p className="text-xl opacity-90">
+                                Join leading medical institutions using BioMatch to save more lives through precision DNA matching.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <a href="/app">
+                                    <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+                                        Try it now
+                                        <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Button>
+                                </a>
+                                <a href="https://github.com/mikaelendale/biomatch" target="_blank">
+                                    <Button
+                                        size="lg"
+                                        variant="outline"
+                                        className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
+                                    >
+                                        Contribute
+                                    </Button>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* CTA Section */}
-            <section className="py-20 text-primary-foreground">
-                <div className="container mx-auto px-4 text-center bg-muted-foreground rounded-3xl p-12 w-full max-w-7xl">
-                    <div className="max-w-3xl mx-auto space-y-8">
-                        <h2 className="text-3xl lg:text-4xl font-bold">Ready to Transform Your Organ Matching Process?</h2>
-                        <p className="text-xl opacity-90">
-                            Join leading medical institutions using BioMatch to save more lives through precision DNA matching.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href="/app">
-                                <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                                    Try it now
-                                    <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </a>
-                            <a href="https://github.com/mikaelendale/biomatch" target="_blank">
-                                <Button
-                                    size="lg"
-                                    variant="outline"
-                                    className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
-                                >
-                                    Contribute
-                                </Button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Footer */}
-            <Footer />
-        </div>
+                {/* Footer */}
+                <Footer />
+            </div>
+        </>
     )
 }
