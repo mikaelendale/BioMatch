@@ -370,7 +370,7 @@ export default function Home() {
                     <div className="lg:col-span-8">
                         {!showResults ? (
                             /* Enhanced Welcome State */
-                            <Card className="h-full min-h-[600px] flex items-center justify-center">
+                            <Card className="h-full min-h-[600px] rounded-3xl border shadow-none flex items-center justify-center">
                                 <CardContent className="text-center space-y-8 p-12">
                                     <div className="w-24 h-24 mx-auto rounded-full flex items-center justify-center">
                                         <img src="https://www.svgrepo.com/show/210271/care-donation.svg" alt="" />
@@ -381,7 +381,7 @@ export default function Home() {
                                             AI-powered compatibility analysis with predictive outcomes and organ-specific algorithms.
                                         </p>
                                     </div>
-                                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
                                         <div className="flex flex-col items-center gap-2 p-4  rounded-lg">
                                             <SearchCheck className="h-6 w-6 text-primary" />
                                             <span className="text-sm font-medium">2s Analysis</span>
@@ -517,7 +517,7 @@ export default function Home() {
 
                 {/* Enhanced Features Section */}
                 {!showResults && (
-                    <div className="mt-16 space-y-12">
+                    <div className="mt-16 space-y-12 ">
                         <div className="text-center">
                             <h2 className="text-3xl font-bold mb-4">Advanced BioMatch Features</h2>
                             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -526,9 +526,9 @@ export default function Home() {
                         </div>
 
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <Card className="text-center p-6 hover:shadow-lg transition-all hover:scale-[1.02]">
-                                <div className="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-lg flex items-center justify-center">
-                                    <Zap className="h-6 w-6 text-primary" />
+                            <Card className="rounded-3xl text-center p-6 shadow-none border-2 border-dashed border-muted-foreground transition-all">
+                                <div className="w-12 h-12 mx-auto mb-4  rounded-lg flex items-center justify-center">
+                                    <img src="https://www.svgrepo.com/show/50789/cell.svg" alt="Multi-Organ Support" className="  text-primary" />
                                 </div>
                                 <h3 className="font-semibold mb-2">Multi-Organ Support</h3>
                                 <p className="text-sm text-muted-foreground">
@@ -536,25 +536,25 @@ export default function Home() {
                                 </p>
                             </Card>
 
-                            <Card className="text-center p-6 hover:shadow-lg transition-all hover:scale-[1.02]">
+                            <Card className="rounded-3xl text-center p-6 shadow-none border-2 border-dashed border-muted-foreground transition-all">
                                 <div className="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-lg flex items-center justify-center">
-                                    <Users className="h-6 w-6 text-primary" />
+                                    <img src="https://www.svgrepo.com/show/219289/analysis-graph.svg" />
                                 </div>
                                 <h3 className="font-semibold mb-2">Predictive Analytics</h3>
                                 <p className="text-sm text-muted-foreground">AI-powered success probability and risk assessment</p>
                             </Card>
 
-                            <Card className="text-center p-6 hover:shadow-lg transition-all hover:scale-[1.02]">
+                            <Card className="rounded-3xl text-center p-6 shadow-none border-2 border-dashed border-muted-foreground transition-all">
                                 <div className="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-lg flex items-center justify-center">
-                                    <Shield className="h-6 w-6 text-primary" />
+                                    <img src="https://www.svgrepo.com/show/496176/export-3.svg" />
                                 </div>
                                 <h3 className="font-semibold mb-2">Professional Export</h3>
                                 <p className="text-sm text-muted-foreground">PDF reports and JSON data for clinical review</p>
                             </Card>
 
-                            <Card className="text-center p-6 hover:shadow-lg transition-all hover:scale-[1.02]">
+                            <Card className="rounded-3xl text-center p-6 shadow-none border-2 border-dashed border-muted-foreground transition-all">
                                 <div className="w-12 h-12 mx-auto mb-4 bg-primary/10 rounded-lg flex items-center justify-center">
-                                    <TrendingUp className="h-6 w-6 text-primary" />
+                                    <img src="https://www.svgrepo.com/show/375433/firestore.svg"/>
                                 </div>
                                 <h3 className="font-semibold mb-2">Real-time Insights</h3>
                                 <p className="text-sm text-muted-foreground">Live donor updates and compatibility tracking</p>

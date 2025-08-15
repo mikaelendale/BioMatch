@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Loader2, Brain, TrendingUp, AlertCircle, CheckCircle, Target, Shield, Activity } from "lucide-react"
+import { Loader2, Brain, TrendingUp, AlertCircle, CheckCircle, Target, Shield, Activity, Beef, Blend, SignalHigh, ChartArea, TrendingUpDown, SearchCodeIcon, SearchIcon, FlaskConical, CircleCheck } from "lucide-react"
 import { generateAIInsights } from "@/lib/ai-insights"
 import type { Donor } from "@/lib/mock-data"
 
@@ -244,7 +244,6 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-bold flex items-center gap-2">
-                    <Brain className="h-6 w-6 text-primary" />
                     AI Clinical Analysis
                 </h2>
                 <Button variant="outline" onClick={generateInsights} disabled={isLoading || topMatches.length === 0}>
@@ -264,10 +263,10 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
 
             {/* Quick Stats */}
             <div className="grid md:grid-cols-4 gap-4">
-                <Card>
+                <Card className="rounded-3xl shadow-none border-dashed border-accent border-2">
                     <CardContent className="p-4">
                         <div className="flex items-center gap-2 mb-2">
-                            <CheckCircle className="h-4 w-4 text-green-500" />
+                            <Beef className="w-4 h-4 text-primary" />
                             <span className="text-sm font-medium">Best Match</span>
                         </div>
                         <div className="text-2xl font-bold text-primary">{topMatches[0]?.compatibility || 0}%</div>
@@ -275,10 +274,10 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                     </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="rounded-3xl shadow-none border-dashed border-accent border-2">
                     <CardContent className="p-4">
                         <div className="flex items-center gap-2 mb-2">
-                            <TrendingUp className="h-4 w-4 text-blue-500" />
+                            <Blend className="h-4 w-4 text-primary" />
                             <span className="text-sm font-medium">Average Score</span>
                         </div>
                         <div className="text-2xl font-bold text-primary">
@@ -291,10 +290,10 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                     </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="rounded-3xl shadow-none border-dashed border-accent border-2">
                     <CardContent className="p-4">
                         <div className="flex items-center gap-2 mb-2">
-                            <Target className="h-4 w-4 text-accent" />
+                            <SignalHigh className="h-4 w-4 text-primary" />
                             <span className="text-sm font-medium">High Matches</span>
                         </div>
                         <div className="text-2xl font-bold text-primary">
@@ -304,10 +303,10 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                     </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="rounded-3xl shadow-none border-dashed border-accent border-2">
                     <CardContent className="p-4">
                         <div className="flex items-center gap-2 mb-2">
-                            <Activity className="h-4 w-4 text-green-500" />
+                            <ChartArea className="h-4 w-4 text-primary" />
                             <span className="text-sm font-medium">Analysis Status</span>
                         </div>
                         <div
@@ -322,7 +321,7 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
 
             {/* AI Analysis Results */}
             {isLoading ? (
-                <Card>
+                <Card className="rounded-3xl shadow-none border-dashed border-accent border-2">
                     <CardContent className="flex items-center justify-center py-12">
                         <div className="text-center space-y-4">
                             <Loader2 className="h-8 w-8 animate-spin mx-auto text-primary" />
@@ -334,7 +333,7 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                     </CardContent>
                 </Card>
             ) : error ? (
-                <Card>
+                <Card className="rounded-3xl shadow-none border-dashed border-destructive border-2">
                     <CardContent className="text-center py-8">
                         <AlertCircle className="h-8 w-8 mx-auto mb-4 text-destructive" />
                         <p className="text-destructive font-medium mb-2">Analysis Failed</p>
@@ -348,23 +347,22 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                 <div className="grid lg:grid-cols-2 gap-6">
                     {/* Predictive Analytics */}
                     {insights.predictiveAnalytics && (
-                        <Card className="lg:col-span-2">
+                        <Card className="lg:col-span-2 rounded-3xl shadow-none border-dashed border-accent border-2">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <TrendingUp className="h-5 w-5 text-primary" />
                                     Predictive Analytics
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="grid md:grid-cols-3 gap-4">
-                                    <div className="p-4 bg-green-50 dark:bg-green-950 rounded-lg border border-green-200 dark:border-green-800">
+                                    <div className="p-4 bg-green-50 dark:bg-green-950/30 rounded-lg border border-accent">
                                         <h4 className="font-medium text-green-800 dark:text-green-200 mb-2">Success Rate</h4>
                                         <p className="text-2xl font-bold text-green-600 dark:text-green-400">
                                             {sanitizeForRender(insights.predictiveAnalytics.overallSuccessRate)}
                                         </p>
                                     </div>
                                     {insights.predictiveAnalytics.bestMatch && (
-                                        <div className="p-4 bg-blue-50 dark:bg-blue-950 rounded-lg border border-blue-200 dark:border-blue-800">
+                                        <div className="p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-accent">
                                             <h4 className="font-medium text-blue-800 dark:text-blue-200 mb-2">Best Match</h4>
                                             <p className="text-lg font-bold text-blue-600 dark:text-blue-400">
                                                 Donor #{sanitizeForRender(insights.predictiveAnalytics.bestMatch.donorId)}
@@ -375,7 +373,7 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                                         </div>
                                     )}
                                     {insights.predictiveAnalytics.riskStratification && (
-                                        <div className="p-4 bg-yellow-50 dark:bg-yellow-950 rounded-lg border border-yellow-200 dark:border-yellow-800">
+                                        <div className="p-4 bg-yellow-50 dark:bg-yellow-950/30  rounded-lg border border-accent">
                                             <h4 className="font-medium text-yellow-800 dark:text-yellow-200 mb-2">Risk Levels</h4>
                                             <div className="space-y-1 text-sm">
                                                 <div className="text-green-600 dark:text-green-400">
@@ -405,16 +403,15 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
 
                     {/* Organ-Specific Insights */}
                     {insights.organSpecificInsights && (
-                        <Card>
+                        <Card className="rounded-3xl shadow-none border-dashed border-accent border-2">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <Target className="h-5 w-5 text-primary" />
                                     Organ-Specific Insights
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="space-y-4">
-                                    <div className="p-4 bg-primary/5 rounded-lg border border-primary/10">
+                                    <div className="p-4 bg-primary/5 rounded-xl border border-primary/10">
                                         <h4 className="font-medium text-primary mb-2">Primary Recommendation</h4>
                                         <p className="text-sm">{sanitizeForRender(insights.organSpecificInsights.primaryRecommendation)}</p>
                                     </div>
@@ -425,8 +422,8 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                                                 <h4 className="font-medium mb-2">Alternative Options</h4>
                                                 <div className="space-y-2">
                                                     {insights.organSpecificInsights.alternativeOptions.map((option, index) => (
-                                                        <div key={index} className="flex items-start gap-2 p-2 bg-muted/50 rounded">
-                                                            <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                                                        <div key={index} className="flex items-start gap-2 p-2 bg-muted/50 rounded-xl">
+                                                            <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                                                             <p className="text-sm">{sanitizeForRender(option)}</p>
                                                         </div>
                                                     ))}
@@ -442,7 +439,7 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                                                     {insights.organSpecificInsights.organSpecificRisks.map((risk, index) => (
                                                         <div
                                                             key={index}
-                                                            className="flex items-start gap-2 p-2 bg-red-50 dark:bg-red-950 rounded border border-red-200 dark:border-red-800"
+                                                            className="flex items-start gap-2 p-2 bg-red-50 dark:bg-red-950/30 rounded-xl border border-accent"
                                                         >
                                                             <AlertCircle className="h-4 w-4 text-red-500 mt-0.5 flex-shrink-0" />
                                                             <p className="text-sm text-red-700 dark:text-red-300">{sanitizeForRender(risk)}</p>
@@ -458,10 +455,9 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
 
                     {/* Clinical Decision Support */}
                     {insights.clinicalDecisionSupport && (
-                        <Card>
+                        <Card className="rounded-3xl shadow-none border-dashed border-accent border-2">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <Shield className="h-5 w-5 text-accent" />
                                     Clinical Decision Support
                                 </CardTitle>
                             </CardHeader>
@@ -474,7 +470,7 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                                                 {insights.clinicalDecisionSupport.immediateActions.map((action, index) => (
                                                     <div
                                                         key={index}
-                                                        className="flex items-start gap-2 p-2 bg-yellow-50 dark:bg-yellow-950 rounded border border-yellow-200 dark:border-yellow-800"
+                                                        className="flex items-start gap-2 p-2 bg-yellow-50 dark:bg-yellow-950/30 rounded-xl border border-accent "
                                                     >
                                                         <AlertCircle className="h-4 w-4 text-yellow-600 mt-0.5 flex-shrink-0" />
                                                         <p className="text-sm text-yellow-800 dark:text-yellow-200">{sanitizeForRender(action)}</p>
@@ -491,9 +487,9 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                                                 {insights.clinicalDecisionSupport.additionalTesting.map((test, index) => (
                                                     <div
                                                         key={index}
-                                                        className="flex items-start gap-2 p-2 bg-blue-50 dark:bg-blue-950 rounded border border-blue-200 dark:border-blue-800"
+                                                        className="flex items-start gap-2 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-xl border border-accent"
                                                     >
-                                                        <Activity className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                                                        <FlaskConical className="h-4 w-4 text-blue-600 dark:text-blue-200 mt-0.5 flex-shrink-0" />
                                                         <p className="text-sm text-blue-800 dark:text-blue-200">{sanitizeForRender(test)}</p>
                                                     </div>
                                                 ))}
@@ -507,28 +503,27 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
 
                     {/* Personalized Analysis */}
                     {insights.personalized && (
-                        <Card className="lg:col-span-2">
+                        <Card className="lg:col-span-2 rounded-3xl shadow-none border-dashed border-accent border-2">
                             <CardHeader>
                                 <CardTitle className="flex items-center gap-2">
-                                    <Brain className="h-5 w-5 text-primary" />
                                     Personalized Analysis
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <div className="grid md:grid-cols-3 gap-4">
-                                    <div className="p-4 bg-muted/50 rounded-lg">
+                                    <div className="p-4 bg-muted/50 rounded-xl">
                                         <h4 className="font-medium mb-2">Age Factors</h4>
                                         <p className="text-sm text-muted-foreground">
                                             {sanitizeForRender(insights.personalized.ageFactors)}
                                         </p>
                                     </div>
-                                    <div className="p-4 bg-muted/50 rounded-lg">
+                                    <div className="p-4 bg-muted/50 rounded-xl">
                                         <h4 className="font-medium mb-2">HLA Optimization</h4>
                                         <p className="text-sm text-muted-foreground">
                                             {sanitizeForRender(insights.personalized.hlaOptimization)}
                                         </p>
                                     </div>
-                                    <div className="p-4 bg-muted/50 rounded-lg">
+                                    <div className="p-4 bg-muted/50 rounded-xl">
                                         <h4 className="font-medium mb-2">Long-term Prognosis</h4>
                                         <p className="text-sm text-muted-foreground">
                                             {sanitizeForRender(insights.personalized.longTermPrognosis)}
@@ -540,10 +535,10 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                     )}
 
                     {/* Summary */}
-                    <Card className="lg:col-span-2">
+                    <Card className="lg:col-span-2 rounded-3xl shadow-none border-dashed border-accent border-2">
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2">
-                                <CheckCircle className="h-5 w-5 text-green-500" />
+                                <CircleCheck className="h-5 w-5 text-primary" />
                                 Executive Summary
                             </CardTitle>
                         </CardHeader>
@@ -553,9 +548,8 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                     </Card>
                 </div>
             ) : (
-                <Card>
+                <Card className="rounded-3xl shadow-none border-dashed border-accent border-2">
                     <CardContent className="text-center py-12">
-                        <Brain className="h-12 w-12 mx-auto mb-4 opacity-50" />
                         <div className="space-y-2">
                             <p className="font-medium">Ready for AI Analysis</p>
                             <p className="text-sm text-muted-foreground">
@@ -568,14 +562,14 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
 
             {/* HLA Compatibility Breakdown */}
             {topMatches.length > 0 && (
-                <Card>
+                <Card className="rounded-3xl shadow-none border-dashed border-accent border-2">
                     <CardHeader>
                         <CardTitle>HLA Compatibility Matrix</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-4">
                             {topMatches.slice(0, 3).map((match, index) => (
-                                <div key={match.id} className="border rounded-lg p-4 space-y-3">
+                                <div key={match.id} className="border rounded-xl p-4 space-y-3">
                                     <div className="flex items-center justify-between">
                                         <span className="font-medium">Donor #{match.id}</span>
                                         <Badge variant={match.compatibility >= 80 ? "default" : "secondary"}>
@@ -584,7 +578,7 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                                     </div>
 
                                     <div className="grid grid-cols-3 gap-3">
-                                        <div className="text-center p-3 bg-muted/50 rounded-lg">
+                                        <div className="text-center p-3 bg-muted/50 rounded-xl">
                                             <div className="text-xs text-muted-foreground mb-1">HLA-A</div>
                                             <div className="font-mono text-xs mb-1">{match.hla.hlaA}</div>
                                             <Badge variant={recipientHLA.hlaA === match.hla.hlaA ? "default" : "outline"} className="text-xs">
@@ -592,7 +586,7 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                                             </Badge>
                                         </div>
 
-                                        <div className="text-center p-3 bg-muted/50 rounded-lg">
+                                        <div className="text-center p-3 bg-muted/50 rounded-xl">
                                             <div className="text-xs text-muted-foreground mb-1">HLA-B</div>
                                             <div className="font-mono text-xs mb-1">{match.hla.hlaB}</div>
                                             <Badge variant={recipientHLA.hlaB === match.hla.hlaB ? "default" : "outline"} className="text-xs">
@@ -600,7 +594,7 @@ export function AIInsights({ recipientHLA, topMatches, onInsightsGenerated }: AI
                                             </Badge>
                                         </div>
 
-                                        <div className="text-center p-3 bg-muted/50 rounded-lg">
+                                        <div className="text-center p-3 bg-muted/50 rounded-xl">
                                             <div className="text-xs text-muted-foreground mb-1">HLA-DRB1</div>
                                             <div className="font-mono text-xs mb-1">{match.hla.hlaDR}</div>
                                             <Badge

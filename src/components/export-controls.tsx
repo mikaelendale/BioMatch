@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { Download, FileText, Database, Printer, Share2, CheckCircle } from "lucide-react"
+import { Download, FileText, Database, Printer, Share2, CheckCircle, Braces } from "lucide-react"
 import { generatePDFReport, downloadJSONReport } from "@/lib/pdf-export"
 import type { Donor } from "@/lib/mock-data"
 import { useState } from "react"
@@ -115,32 +115,31 @@ export function ExportControls({
     }
 
     return (
-        <Card className="w-full">
+        <Card className="w-full rounded-3xl shadow-none border border-accent border-2  ">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                    <Download className="h-5 w-5 text-primary" />
                     Export & Share Results
                 </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
                 {/* Export Summary */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="text-center p-3 bg-primary/5 rounded-lg border border-primary/10">
+                    <div className="text-center p-3 bg-primary/5 rounded-lg border border-accent">
                         <div className="text-2xl font-bold text-primary">{topMatches.length}</div>
                         <div className="text-xs text-muted-foreground">Total Matches</div>
                     </div>
-                    <div className="text-center p-3 bg-green-50 rounded-lg border border-green-100">
+                    <div className="text-center p-3 bg-green-50 dark:bg-green-950/30 rounded-lg border border-accent">
                         <div className="text-2xl font-bold text-green-600">
                             {topMatches.filter((m) => m.compatibility >= 80).length}
                         </div>
                         <div className="text-xs text-muted-foreground">High Quality</div>
                     </div>
-                    <div className="text-center p-3 bg-blue-50 rounded-lg border border-blue-100">
+                    <div className="text-center p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-accent">
                         <div className="text-2xl font-bold text-blue-600">{totalDonors}</div>
                         <div className="text-xs text-muted-foreground">Donors Analyzed</div>
                     </div>
-                    <div className="text-center p-3 bg-accent/5 rounded-lg border border-accent/10">
-                        <div className="text-2xl font-bold text-accent">{analysisTime}</div>
+                    <div className="text-center p-3 bg-accent/5 rounded-lg border border-accent">
+                        <div className="text-2xl font-bold text-primary">{analysisTime}</div>
                         <div className="text-xs text-muted-foreground">Analysis Time</div>
                     </div>
                 </div>
@@ -155,8 +154,8 @@ export function ExportControls({
                         {/* PDF Export */}
                         <div className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
                             <div className="flex items-center gap-3 mb-3">
-                                <div className="p-2 bg-red-100 rounded-lg">
-                                    <FileText className="h-5 w-5 text-red-600" />
+                                <div className="p-2 bg-accent rounded-lg">
+                                    <FileText className="h-5 w-5 text-red-600 dark:text-red-400" />
                                 </div>
                                 <div>
                                     <div className="font-medium">Professional PDF Report</div>
@@ -177,8 +176,8 @@ export function ExportControls({
                         {/* JSON Export */}
                         <div className="p-4 border rounded-lg hover:bg-muted/50 transition-colors">
                             <div className="flex items-center gap-3 mb-3">
-                                <div className="p-2 bg-blue-100 rounded-lg">
-                                    <Database className="h-5 w-5 text-blue-600" />
+                                <div className="p-2 bg-accent rounded-lg">
+                                    <Braces className="h-5 w-5 text-blue-600" />
                                 </div>
                                 <div>
                                     <div className="font-medium">Raw Data Export</div>
@@ -223,13 +222,13 @@ export function ExportControls({
                 )}
 
                 {/* Export Details */}
-                <div className="p-4 bg-muted/30 rounded-lg border-l-4 border-l-primary">
+                <div className="p-4 bg-muted/30 rounded-lg border-b-4 border-b-muted-foreground">
                     <div className="text-sm">
                         <div className="font-medium mb-2">Export Includes:</div>
                         <ul className="space-y-1 text-muted-foreground">
                             <li>• Complete HLA profile analysis</li>
                             <li>• Top {Math.min(3, topMatches.length)} donor matches with detailed compatibility</li>
-                            <li>• AI-powered clinical insights and recommendations</li>
+                            {/* <li>• AI-powered clinical insights and recommendations</li> */}
                             <li>• System metadata and analysis timestamp</li>
                             <li>• Professional formatting for medical review</li>
                         </ul>

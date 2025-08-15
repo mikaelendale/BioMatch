@@ -140,7 +140,7 @@ Maintain medical accuracy while providing actionable insights for transplant tea
     );
   } catch (error) {
     console.error("Error generating AI insights:", error);
-    throw new Error(
+    throw new Error( 
       "Failed to generate AI insights. Please check your Groq API configuration."
     );
   }
