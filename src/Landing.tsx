@@ -128,7 +128,7 @@ export default function LandingPage() {
                                         loop
                                         muted
                                         className="size-full object-cover opacity-50 invert dark:opacity-35 dark:invert-0 dark:lg:opacity-75"
-                                        src="hero.mp4"
+                                        src="hero2.mp4"
                                         onError={() => setVideoError(true)}
                                     />
                                 );
@@ -207,7 +207,7 @@ export default function LandingPage() {
             </main>
 
             {/* Features Section */}
-            <section id="features" className="pt-30 sm:pt-80 md:pt-10 w-full max-w-7xl mx-auto px-4">
+            <section id="features" className="pt-30 lg:pt-50 md:pt-10 w-full max-w-7xl mx-auto px-4">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <Badge variant="outline" className="mb-4">
