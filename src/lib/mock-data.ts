@@ -124,14 +124,14 @@ function getRandomElement<T>(array: T[]): T {
 }
 
 function generateRandomHLA(): HLAProfile {
-  console.log("[v0] Generating HLA profile using real TSV data");
+  console.log("Generating HLA profile using real TSV data");
   const hlaProfile = generateRealisticHLASync();
-  console.log("[v0] Generated HLA profile:", hlaProfile);
+  console.log("Generated HLA profile:", hlaProfile);
   return hlaProfile;
 }
 
 export function generateMockDonors(count: number): Donor[] {
-  console.log(`[v0] Generating ${count} mock donors using real HLA data`);
+  console.log(`Generating ${count} mock donors using real HLA data`);
   const donors: Donor[] = [];
 
   for (let i = 1; i <= count; i++) {
@@ -190,10 +190,10 @@ export function generateMockDonors(count: number): Donor[] {
   }
 
   console.log(
-    `[v0] Successfully generated ${donors.length} donors with real HLA data`
+    `Successfully generated ${donors.length} donors with real HLA data`
   );
   console.log(
-    "[v0] Sample donor HLA profiles:",
+    "Sample donor HLA profiles:",
     donors.slice(0, 3).map((d) => ({ id: d.id, hla: d.hla }))
   );
   return donors;
@@ -204,7 +204,7 @@ export function generateHighCompatibilityDonors(
   count = 5
 ): Donor[] {
   console.log(
-    `[v0] Generating ${count} high compatibility donors for recipient:`,
+    `Generating ${count} high compatibility donors for recipient:`,
     recipientHLA
   );
   const donors: Donor[] = [];
@@ -219,7 +219,7 @@ export function generateHighCompatibilityDonors(
     };
 
     console.log(
-      `[v0] Generated high compatibility donor ${i} HLA:`,
+      `Generated high compatibility donor ${i} HLA:`,
       matchingHLA
     );
 
@@ -239,7 +239,7 @@ export function generateHighCompatibilityDonors(
     });
   }
 
-  console.log(`[v0] Generated ${donors.length} high compatibility donors`);
+  console.log(`Generated ${donors.length} high compatibility donors`);
   return donors;
 }
 

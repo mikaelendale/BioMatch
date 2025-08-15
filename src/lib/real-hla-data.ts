@@ -150,7 +150,7 @@ export async function generateRealisticHLAFromTSV(): Promise<{
     };
   } catch (error) {
     console.warn(
-      "[v0] Failed to load TSV data, using fallback frequencies:",
+      " Failed to load TSV data, using fallback frequencies:",
       error
     );
     return generateRealisticHLA();
@@ -163,12 +163,12 @@ export function generateRealisticHLASync(): {
   hlaB: string;
   hlaDR: string;
 } {
-  console.log("[v0] Generating realistic HLA using sync method");
-  console.log("[v0] Cached HLA data available:", !!cachedHLAData);
+  console.log(" Generating realistic HLA using sync method");
+  console.log(" Cached HLA data available:", !!cachedHLAData);
 
   if (cachedHLAData) {
-    console.log("[v0] Using cached TSV data for HLA generation");
-    console.log("[v0] Available loci in cache:", Object.keys(cachedHLAData));
+    console.log(" Using cached TSV data for HLA generation");
+    console.log(" Available loci in cache:", Object.keys(cachedHLAData));
 
     const result = {
       hlaA:
@@ -185,24 +185,24 @@ export function generateRealisticHLASync(): {
           : selectWeightedHLAAllele(realHLADR),
     };
 
-    console.log("[v0] Generated HLA profile:", result);
+    console.log(" Generated HLA profile:", result);
     return result;
   }
 
-  console.log("[v0] No cached data, attempting immediate load...");
+  console.log(" No cached data, attempting immediate load...");
   getHLAData()
     .then((data) => {
-      console.log("[v0] Successfully loaded HLA data asynchronously");
+      console.log(" Successfully loaded HLA data asynchronously");
       cachedHLAData = data;
     })
     .catch((error) => {
-      console.warn("[v0] Failed to load HLA data:", error);
+      console.warn(" Failed to load HLA data:", error);
     });
 
   // Fallback to embedded frequencies if TSV data not loaded
-  console.log("[v0] Using fallback embedded frequencies");
+  console.log(" Using fallback embedded frequencies");
   const result = generateRealisticHLA();
-  console.log("[v0] Generated fallback HLA profile:", result);
+  console.log(" Generated fallback HLA profile:", result);
   return result;
 }
 
@@ -239,7 +239,7 @@ export async function generatePopulationSpecificHLAFromTSV(
     };
   } catch (error) {
     console.warn(
-      "[v0] Failed to load TSV data for population-specific generation:",
+      " Failed to load TSV data for population-specific generation:",
       error
     );
     return generatePopulationSpecificHLA();
@@ -247,14 +247,14 @@ export async function generatePopulationSpecificHLAFromTSV(
 }
 
 if (typeof window !== "undefined") {
-  console.log("[v0] Initializing HLA data loading...");
+  console.log(" Initializing HLA data loading...");
   // Only load in browser environment
   getHLAData()
     .then((data) => {
-      console.log("[v0] Successfully preloaded HLA data on module init");
-      console.log("[v0] Preloaded loci:", Object.keys(data));
+      console.log(" Successfully preloaded HLA data on module init");
+      console.log(" Preloaded loci:", Object.keys(data));
     })
     .catch((error) => {
-      console.warn("[v0] Failed to preload HLA data:", error);
+      console.warn(" Failed to preload HLA data:", error);
     });
 }
