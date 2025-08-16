@@ -21,6 +21,7 @@ import Footer from "./components/footer"
 import { InfiniteSlider } from "./components/motion-primitives/infinite-slider"
 import { HeroHeader } from "./components/header"
 import React from "react"
+import OrganCounter from "./components/organ-counter"
 
 export default function LandingPage() {
 
@@ -93,11 +94,14 @@ export default function LandingPage() {
 
             {/* Hero Section */}
             <main className="overflow-x-hidden">
+                
                 <section>
                     <div className="pt-27 pb-10 md:pb-32 lg:pb-20 lg:pt-72">
                         <div className="relative mx-auto z-20 flex max-w-7xl flex-col px-6 lg:block lg:px-12">
+
+                            <OrganCounter />
                             <div className="mx-auto max-w-lg text-center lg:ml-0 lg:max-w-full lg:text-left">
-                                <h1 className="mt-8 max-w-2xl text-primary text-balance text-5xl md:text-6xl lg:mt-16 xl:text-7xl">
+                                <h1 className="mt-8 max-w-2xl text-primary text-balance text-5xl md:text-6xl lg:mt- xl:text-7xl">
                                     Save Lives with DNA Precision
                                 </h1>
                                 <p className="mt-8 max-w-2xl text-balance text-lg">
@@ -204,8 +208,8 @@ export default function LandingPage() {
                         </div>
                     </div>
                 </section>
-            </main>
 
+            </main>
             {/* Features Section */}
             <section id="features" className="pt-30 lg:pt-50 md:pt-10 w-full max-w-7xl mx-auto px-4">
                 <div className="container mx-auto px-4">
