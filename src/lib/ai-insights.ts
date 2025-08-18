@@ -10,7 +10,7 @@ interface HLAData {
 }
 
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: "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",
   dangerouslyAllowBrowser: true,
 });
 
