@@ -8,9 +8,8 @@ interface HLAData {
   hlaB: string;
   hlaDR: string;
 }
-
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: import.meta.env.VITE_GROQ_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
